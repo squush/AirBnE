@@ -1,6 +1,6 @@
 class Crime < ApplicationRecord
   belongs_to :user
-  has_many :bookings
+  has_many :bookings, dependent: :destroy
 
   validates :crime_type, presence: true
   validates :area, presence: true
