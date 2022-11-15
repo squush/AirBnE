@@ -7,6 +7,12 @@ export default class extends Controller {
   }
 
   toggle() {
-    this.element.classList.toggle("btn-secondary");
+    this.element.classList.toggle("clicked");
+    // Jackson - started to implement filtering logic, TODO
+    //
+    // const types_clicked = document.getElementsByClassName("clicked");
+    // const crime_cards = document.getElementsByClassName("crime-card");
+    // console.log(types_clicked);
+    // console.log(crime_cards);
   }
 }
