@@ -1,4 +1,5 @@
 class CrimesController < ApplicationController
+  # Jackson
   def index
     @crimes = Crime.all
   end
@@ -19,8 +20,11 @@ class CrimesController < ApplicationController
     end
   end
 
+  # Jackson made the initial
+  # Andrew made the rest
   def show
     @crime = Crime.find(params[:id])
+    @user = User.find(@crime.user.id)
   end
 
   # Arstanbek added private set_crime and crime_params
