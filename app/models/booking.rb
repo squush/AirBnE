@@ -8,4 +8,7 @@ class Booking < ApplicationRecord
     rejected: 2,
     done: 3
   }
+
+  validates :target, presence: true
+  validates :crime_date, presence: true
 end
