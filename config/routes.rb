@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   get '/my_crimes', to: 'crimes#my_crimes'
   resources :users, only: [] do
+  resources :users, only: %i[show] do
     # No new route for bookings. We'll just have the form directly on the crime
     # page so the user can book without going to a new page
     resources :bookings, only: %i[index show create]
