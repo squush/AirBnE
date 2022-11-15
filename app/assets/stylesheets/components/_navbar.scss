@@ -6,8 +6,13 @@
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
+  text-justify: center;
 }
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
 }
+
+// .navbar-lewagon .nav-item > .active:after {
+//   text-decoration: underline;
+// }
