@@ -17,7 +17,7 @@ puts "Creating criminal users..."
   user = User.create(
     # TODO: Migrations for username and other missing cols
     #       And rename crime_date to just date
-    # username: Faker::Superhero.name.gsub("","_"),
+    username: Faker::Superhero.name.gsub("","_"),
     email: Faker::Internet.email,
     password: 'qweasd'
   )
