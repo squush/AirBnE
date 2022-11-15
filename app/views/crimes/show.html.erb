@@ -1,3 +1,25 @@
-<h1> This is a crime </h1>
+<%# Jackson made the skeleton
+  Andrew made the rest %>
 
-<%= @crime %>
+<div class="container">
+  <%# This h1 looks bad and needs better styling!  %>
+  <h1 class="mb-3 text-info"><%= @crime.crime_type.capitalize %> by <%= @user.username %></h1>
+
+  <%# Div with info on the crime %>
+  <div>
+    <p>Crime: <%= @crime.crime_type %></p>
+    <p>Criminal: <%= @user.username %></p>
+    <p>Area of operations: <%= @crime.area %></p>
+    <p>Price: $<%= @crime.price %></p>
+    <p>Years of experience: <%= @crime.years_experience.nil? ? "unknown" : @crime.years_experience %></p>
+  </div>
+
+  <%# Div with navigation options for users %>
+  <div>
+    <p>
+      <%= link_to "edit" if @user == current_user %>
+      <%= link_to "delete" if @user == current_user %>
+      <%= link_to "book" unless @user == current_user %>
+    </p>
+  </div>
+</div>

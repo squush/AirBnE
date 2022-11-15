@@ -12,19 +12,30 @@
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class="nav-item active">
-            <%= link_to "Home", "#", class: "nav-link" %>
+            <%= link_to "All crimes", crimes_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item active">
+            <%# Needs path for viewing own crimes %>
+            <%= link_to "My crimes", "#", class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <%= link_to "My booking", "#", class: "nav-link" %>
+            <%# Needs path for viewing jobs I'm paying for (as the contractor) %>
+            <%= link_to "My bookings", "#", class: "nav-link" %>
           </li>
-           <li class="nav-item">
-            <%= link_to "Post your crime", "#", class: "nav-link" %>
+          <li class="nav-item">
+            <%# Needs path for viewing job I'm doing (as the criminal) %>
+            <%= link_to "My jobs", "#", class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Add a crime", new_crime_path, class: "nav-link" %>
           </li>
           <li class="nav-item dropdown">
             <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Action", "#", class: "dropdown-item" %>
-              <%= link_to "Another action", "#", class: "dropdown-item" %>
+              <%# Needs path for viewing own profile %>
+              <%= link_to "View profile", "#", class: "dropdown-item" %>
+              <%# Needs path for editing own profile %>
+              <%= link_to "Edit profile", "#", class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
             </div>
           </li>
