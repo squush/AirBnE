@@ -1,0 +1,13 @@
+<div class="container">
+  <h1>Here are the crimes you have booked</h1>
+
+  <% @bookings.each do |booking| %>
+    <div class="border border-3">
+      <p>Crime: <%= booking.crime.crime_type %></p>
+      <p>Target: <%= booking.target %></p>
+      <p>Date: <%= booking.crime_date.strftime('%A, %d %b %Y %l:%M %p') %></p>
+      <p>Status: <%= booking.status %></p>
+      <p>Cost: $<%= booking.crime.price %></p>
+    <div>
+  <% end %>
+</div>
