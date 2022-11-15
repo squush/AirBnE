@@ -1,14 +1,16 @@
-<h1>This is a booking</h1>
+<div class="container">
+  <h1 class="text-info">This is a booking</h1>
 
-<p>Crime: <%= @booking.crime.crime_type %></p>
-<p>Target: <%= @booking.target %></p>
-<p>Date: <%= @booking.crime_date.strftime('%A, %d %b %Y %l:%M %p') %></p>
-<p>Status: <%= @booking.status %></p>
+  <p>Crime: <%= @booking.crime.crime_type %></p>
+  <p>Target: <%= @booking.target %></p>
+  <p>Date: <%= @booking.crime_date.strftime('%A, %d %b %Y %l:%M %p') %></p>
+  <p>Status: <%= @booking.status %></p>
 
 
-<p>Cost: $<%= @booking.crime.price %></p>
+  <p>Cost: $<%= @booking.crime.price %></p>
 
-<%# TODO: Need logic below to display buyer if the user is the criminal
-      and display the criminal if the user is the buyer %>
-<p>Buyer: <%= @booking.user.username %></p>
-<p>Criminal: <%= @booking.crime.user.username %></p>
+  <%# TODO: Need logic below to display buyer if the user is the criminal
+        and display the criminal if the user is the buyer %>
+  <p>Buyer: <%= @booking.user.username %></p>
+  <p>Criminal: <%= @booking.crime.user.username %></p>
+</div>
