@@ -1,15 +1,14 @@
 class BookingsController < ApplicationController
+  before_action :set_booking, only: %i[show]
+
   def show
     @user = current_user
-    @booking = Booking.find(params[:id])
     # raise
   end
-end
 
-private
+  private
 
-def booking_params
-  params.require(:crime).permit(
-    :target, :crime_date, :status, :id, :user_id, :crime_id
-  )
+  def set_booking
+    @booking = Booking.find(params[:id])
+  end
 end
