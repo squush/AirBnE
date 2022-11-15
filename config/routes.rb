@@ -10,5 +10,7 @@ Rails.application.routes.draw do
   resources :crimes do
   end
 
+  get '/my_crimes', to: 'crimes#my_crimes'
+
   resources :bookings, only: %i[destroy]
 end

@@ -29,6 +29,10 @@ class CrimesController < ApplicationController
     @user = User.find(@crime.user.id)
   end
 
+  def my_crimes
+
+  end
+
   # Arstanbek added private set_crime and crime_params
   private
 
