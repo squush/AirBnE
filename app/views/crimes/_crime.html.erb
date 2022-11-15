@@ -1,0 +1,10 @@
+<% @crimes.each do |crime| %>
+  <div class="crime-card">
+    <span>
+      <h3><%= crime.crime_type %></h3>
+      <h4><%= crime.user.email %></h4>
+    <span>
+    <p>$<%= crime.price %></p>
+    <p><%= crime.area %></p>
+  </div>
+<% end %>

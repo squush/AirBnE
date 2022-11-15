@@ -1,5 +1,21 @@
 <h1>All Crimes</h1>
 
-<% @crimes.each do |crime| %>
-  <p><%= crime %></p>
+<h3>Filter by crime:</h3>
+<% @crime_types.each do |type| %>
+  <span>
+    <button class="btn btn-secondary btn-lg" data-controller="filter-type" data-action="click->filter-type#toggle">
+      <%= type %>
+    </button>
+  </span>
 <% end %>
+
+<br>
+
+<h3>Filter by area:</h3>
+<% @crime_areas.each do |area| %>
+  <span><%= area %></span>
+<% end %>
+
+
+
+<%= render partial: "crime" %>

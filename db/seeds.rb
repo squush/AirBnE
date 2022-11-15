@@ -5,3 +5,50 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+require 'faker'
+
+puts "Cleaning database..."
+Crime.destroy_all
+User.destroy_all
+
+puts "Creating criminal users..."
+10.times do
+  user = User.create(
+    # TODO: Migrations for username and other missing cols
+    #       And rename crime_date to just date
+    # username: Faker::Superhero.name.gsub("","_"),
+    email: Faker::Internet.email,
+    password: 'qweasd'
+  )
+
+  print "Creating crimes for #{user.email}: "
+  crimes = ["robbery", "auto theft", "assault", "mugging", "jaywalking", "littering", "forgery"]
+
+  3.times do
+    Crime.create(
+      crime_type: crimes.sample,
+      area: "#{Faker::Address.community}, #{Faker::Address.city}",
+      # Price in dollars
+      price: rand(50.0..1000.0),
+      user: user
+    )
+
+    print "#{Crime.last.crime_type}... "
+  end
+  puts ""
+end
+
+puts "Creating bookings..."
+5.times do
+  Booking.create(
+    target: Faker::Name.name,
+    crime_date: Faker::Time.forward(days: 60),
+    status: 0,
+    user: User.all.sample,
+    crime: Crime.all.sample
+  )
+  puts "Created job against #{Booking.last.target}"
+end
+
+puts "Finished!"
