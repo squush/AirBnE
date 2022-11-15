@@ -34,12 +34,7 @@ class CrimesController < ApplicationController
   end
 
   def my_crimes
-    @my_crimes = []
-    Crime.all.map do |crime|
-      if crime.user_id == current_user.id
-        @my_crimes << crime
-      end
-    end
+    @my_crimes = Crime.all.select { |crime| crime.user == current_user }
   end
 
   # Arstanbek added private set_crime and crime_params
