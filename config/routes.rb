@@ -8,5 +8,5 @@ Rails.application.routes.draw do
   get '/crimes', to: 'crimes#index'
   get '/crimes/:id', to: 'crimes#show'
   # Arstanbek
-  get '/my_crimes/new', to: 'crimes#new'
+  get '/my_crimes/new', to: 'crimes#new', as: :new_crime
 end
