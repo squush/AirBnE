@@ -14,7 +14,7 @@ class CrimesController < ApplicationController
   #  Arstanbek
   def create
     @crime = Crime.new(crime_params)
-
+    @crime.user = current_user
     if @crime.save
       redirect_to @crime, notice: "Crime was successfully created."
     else
