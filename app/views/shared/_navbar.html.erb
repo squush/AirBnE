@@ -1,6 +1,6 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
-    <%= link_to "#", class: "navbar-brand" do %>
+    <%= link_to root_path, class: "navbar-brand" do %>
       <%= image_tag "airbne-logo.png", style:'height:50px;width:100px' %>
     <% end %>
 
@@ -10,6 +10,14 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
+        <li class="nav-item list-inline"
+          <span>
+          <%= form_tag crimes_path, method: :get do %>
+            <%= text_field_tag 'keywords', nil, placeholder: "Search for crimes", class: "form-control" %>
+            <%= submit_tag 'Search', name: nil %>
+          <% end %>
+          </span>
+        </li>
         <% if user_signed_in? %>
           <li class="nav-item active">
             <%= link_to "All crimes", crimes_path, class: "nav-link" %>
