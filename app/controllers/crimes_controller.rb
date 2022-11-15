@@ -2,6 +2,8 @@ class CrimesController < ApplicationController
   # Jackson
   def index
     @crimes = Crime.all
+    get_crime_types
+    get_crime_areas
   end
 
   # Arstanbek
@@ -36,5 +38,19 @@ class CrimesController < ApplicationController
 
   def crime_params
     params.require(:crime).permit(:crime_type, :area, :price, :years_experience)
+  end
+
+  private
+
+  def get_crime_types
+    @crime_types = Crime.all.map { |crime| crime.crime_type }
+    @crime_types = @crime_types.uniq
+    return @crime_types
+  end
+
+  def get_crime_areas
+    @crime_areas = Crime.all.map { |crime| crime.area }
+    @crime_areas = @crime_areas.uniq
+    return @crime_areas
   end
 end
