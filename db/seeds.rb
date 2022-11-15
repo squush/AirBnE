@@ -13,37 +13,42 @@ Crime.destroy_all
 User.destroy_all
 
 puts "Creating criminal users..."
-3.times do
+10.times do
   user = User.create(
+    # TODO: Migrations for username and other missing cols
+    #       And rename crime_date to just date
+    # username: Faker::Superhero.name.gsub("","_"),
     email: Faker::Internet.email,
     password: 'qweasd'
   )
 
-  puts "Creating crimes for #{user}"
+  print "Creating crimes for #{user.email}: "
+  crimes = ["robbery", "auto theft", "assault", "mugging", "jaywalking", "littering", "forgery"]
+
   3.times do
     Crime.create(
-      crime_type: Faker::Hobby.activity,
-      area: Faker::Fantasy::Tolkien.location,
-      price: rand(0..1000.0)
-      user_id: user
+      crime_type: crimes.sample,
+      area: "#{Faker::Address.community}, #{Faker::Address.city}",
+      # Price in dollars
+      price: rand(50.0..1000.0),
+      user: user
     )
-  end
 
-  puts "Created #{user.email}"
+    print "#{Crime.last.crime_type}... "
+  end
+  puts ""
 end
 
 puts "Creating bookings..."
-3.times do
-  Booking.new(
-    # TODO: Get this working
-    target: Faker::Ancient.god,
-    crime_date: Faker::Date.between(from: '2022-12-01', to: '2023-11-31'),
+5.times do
+  Booking.create(
+    target: Faker::Name.name,
+    crime_date: Faker::Time.forward(days: 60),
     status: 0,
-    user_id: User.all.sample.id,
-    crime_id: Crime.all.sample.id
+    user: User.all.sample,
+    crime: Crime.all.sample
   )
-
-
+  puts "Created job against #{Booking.last.target}"
 end
 
 puts "Finished!"
