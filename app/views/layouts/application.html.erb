@@ -11,13 +11,10 @@
   </head>
 
   <body>
+    <%= render "shared/navbar" %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 
     <%= yield %>
   </body>
 </html>
-
-<%= render "shared/navbar" %>
-
-# TODO: Need a _navbar.html.erb in shared folder, and need to disable turbo in the arguments
