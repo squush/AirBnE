@@ -44,11 +44,13 @@ class CrimesController < ApplicationController
     params.require(:crime).permit(:crime_type, :area, :price, :years_experience)
   end
 
+  # This returns all the crimes where any word of the type or area matches any word of the search query
   def get_crimes_by_query
     all_crimes = Crime.all
     @crimes = []
     all_crimes.each do |crime|
-      crime_words = crime.crime_type.split(" ") + crime.area.split(" ") + crime.price.to_s.split(" ")
+      # TODO: possibly add stricter search criteria to account for commas, etc.
+      crime_words = crime.crime_type.split(" ") + crime.area.split(" ")
       @crimes << crime if @query.any? { |word| crime_words.include?(word) }
     end
     return @crimes
