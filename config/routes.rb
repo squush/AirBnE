@@ -4,8 +4,8 @@ Rails.application.routes.draw do
 
   # Jackson
   get '/crimes', to: 'crimes#index'
+  # Arstanbek
+  get '/crimes/new', to: 'crimes#new', as: :new_crime
   # Jackson
   get '/crimes/:id', to: 'crimes#show'
-  # Arstanbek
-  get '/my_crimes/new', to: 'crimes#new', as: :new_crime
 end
