@@ -13,13 +13,21 @@ Crime.destroy_all
 User.destroy_all
 
 puts "Creating criminal users..."
+# Simple account for testing
+User.create(
+  email: 'a@a.a',
+  password: '123456',
+  username: 'test_user',
+  bio: 'Definitely not a criminal'
+)
 10.times do
   user = User.create(
     # TODO: Migrations for username and other missing cols
     #       And rename crime_date to just date
-    username: Faker::Superhero.name.gsub("","_"),
+    username: Faker::Superhero.name.gsub(" ","_"),
     email: Faker::Internet.email,
-    password: 'qweasd'
+    password: 'qweasd',
+    bio: Faker::Lorem.sentence
   )
 
   print "Creating crimes for #{user.email}: "
@@ -30,8 +38,9 @@ puts "Creating criminal users..."
       crime_type: crimes.sample,
       area: "#{Faker::Address.community}, #{Faker::Address.city}",
       # Price in dollars
-      price: rand(50.0..1000.0),
-      user: user
+      price: rand(50..1000),
+      user: user,
+      years_experience: rand(0..30)
     )
 
     print "#{Crime.last.crime_type}... "
