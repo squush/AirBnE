@@ -23,7 +23,7 @@ export default class extends Controller {
       crime_cards.forEach(card => {
         card.style.display = "block";
         if (!areas_to_show.includes(card.getElementsByClassName("crime-area")[0].innerText)) {
-        card.style.display = "none";
+          card.style.display = "none";
       } });
     }
   }
