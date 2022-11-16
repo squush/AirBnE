@@ -32,11 +32,17 @@ User.create(
 
   print "Creating crimes for #{user.email}: "
   crimes = ["robbery", "auto theft", "assault", "mugging", "jaywalking", "littering", "forgery"]
+  cities = [
+    "NDG, Montreal", "Rosemont, Montreal", "Hochelaga, Montreal",
+    "The Beaches, Toronto", "Kensington Market, Toronto", "Roncesvalles, Toronto",
+    "Williamsburg, Brooklyn", "Greenwich Village, Manhattan", "Halifax",
+    "Paris", "Bishkek", "Macau", "Brussels", "Miami", "Beijing", "Seoul"
+  ]
 
-  3.times do
+  rand(3..4).times do
     Crime.create(
       crime_type: crimes.sample,
-      area: "#{Faker::Address.community}, #{Faker::Address.city}",
+      area: cities.sample,
       # Price in dollars
       price: rand(50..1000),
       user: user,
@@ -49,7 +55,7 @@ User.create(
 end
 
 puts "Creating bookings..."
-5.times do
+7.times do
   Booking.create(
     target: Faker::Name.name,
     crime_date: Faker::Time.forward(days: 60),
