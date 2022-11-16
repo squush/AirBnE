@@ -29,7 +29,7 @@ vinh = User.create(
 )
 
 Crime.create(
-  crime_type: "mugging",
+  crime_type: "Mugging",
   area: "Kensington Market, Toronto",
   # Price in dollars
   price: 500,
