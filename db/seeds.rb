@@ -115,7 +115,7 @@ Booking.create(
   crime_date: "2022-12-06",
   status: 0,
   user: User.third,
-  crime: mugging
+  crime: burglary
 )
 
 
