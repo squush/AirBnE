@@ -2,11 +2,9 @@
   <%= link_to crime_path(crime), class:"text-decoration-none" do %>
     <div class="crime-card">
       <span>
-        # Tell Jackson if you want to change this h3 - it is important for the filtering logic
         <div class="crime-type"><h3><%= crime.crime_type %></h3></div>
         <h4><%= crime.user.username %></h4>
       <span>
-      # Tell Jackson if you want to change this h5 - it is important for the filtering logic
       <div class="crime-area"><h5><%= crime.area %></h5></div>
       <p>$<%= crime.price %></p>
       <p><%= crime.years_experience %> years of experience in <%= crime.crime_type %></p>
