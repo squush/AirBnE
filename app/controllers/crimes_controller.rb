@@ -66,7 +66,7 @@ class CrimesController < ApplicationController
   end
 
   def get_crime_types
-    @crime_types = Crime.all.map { |crime| crime.crime_type.capitalize }
+    @crime_types = Crime.all.map { |crime| crime.crime_type }
     @crime_types = @crime_types.uniq
     return @crime_types
   end

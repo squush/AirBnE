@@ -24,10 +24,8 @@ export default class extends Controller {
         card.style.display = "block";
         if (!types_to_show.includes(card.getElementsByClassName("crime-type")[0].innerText)) {
         card.style.display = "none";
+        console.log(!types_to_show.includes(card.getElementsByClassName("crime-type")[0].innerText));
       } });
     }
-
-
-
   }
 }

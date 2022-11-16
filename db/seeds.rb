@@ -20,6 +20,23 @@ User.create(
   username: 'test_user',
   bio: 'Definitely not a criminal'
 )
+
+vinh = User.create(
+  email: 'b@b.b',
+  password: '123456',
+  username: 'vinh_to',
+  bio: 'definitely not a criminal, but i do mug from time to time'
+)
+
+Crime.create(
+  crime_type: "mugging",
+  area: "Kensington Market, Toronto",
+  # Price in dollars
+  price: 500,
+  user: vinh,
+  years_experience: 5
+)
+
 10.times do
   user = User.create(
     # TODO: Migrations for username and other missing cols
@@ -31,7 +48,7 @@ User.create(
   )
 
   print "Creating crimes for #{user.email}: "
-  crimes = ["robbery", "auto theft", "assault", "mugging", "jaywalking", "littering", "forgery"]
+  crimes = ["Robbery", "Auto Theft", "Assault", "Mugging", "Jaywalking", "Littering", "Forgery"]
   cities = [
     "NDG, Montreal", "Rosemont, Montreal", "Hochelaga, Montreal",
     "The Beaches, Toronto", "Kensington Market, Toronto", "Roncesvalles, Toronto",
