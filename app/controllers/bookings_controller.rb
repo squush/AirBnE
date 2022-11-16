@@ -13,24 +13,6 @@ class BookingsController < ApplicationController
     @user = current_user
   end
 
-  def approve
-    @booking.status = 1
-    if @booking.save
-      redirect_to user_bookings_path(current_user)
-    else
-      render :new, status: :unprocessable_entity
-    end
-  end
-
-  def reject
-    @booking.status = 2
-    if @booking.save
-      redirect_to user_bookings_path(current_user)
-    else
-      render :new, status: :unprocessable_entity
-    end
-  end
-
   # anabelle
   def new
     @booking = Booking.new
@@ -42,11 +24,31 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     @booking.crime = @crime
     if @booking.save
-      redirect_to  user_bookings_path([@booking.user])
+      redirect_to  bookings_path([@booking.user])
     else
       render :new, status: :unprocessable_entity
     end
     # authorize @booking
+  end
+
+  # Andrew
+  def approve
+    @booking.status = 1
+    if @booking.save
+      redirect_to bookings_path(current_user)
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
+
+  # Andrew
+  def reject
+    @booking.status = 2
+    if @booking.save
+      redirect_to bookings_path(current_user)
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   private
