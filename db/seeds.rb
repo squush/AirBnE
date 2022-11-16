@@ -24,7 +24,7 @@ User.create(
 vinh = User.create(
   email: 'b@b.b',
   password: '123456',
-  username: 'vinh_to',
+  username: 'vinh_tho',
   bio: 'definitely not a criminal, but i do mug from time to time'
 )
 
