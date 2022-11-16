@@ -1,8 +1,11 @@
+
 <div class="container">
   <h1 style="color:black">My crimes</h1>
   <ul>
     <% @my_crimes.each do |crime|%>
-    <li> <%= crime.crime_type %> </li>
+      <%= link_to crime_path(crime) do %>
+        <li> <%= crime.crime_type %> </li>
+      <% end %>
     <% end %>
   </ul>
 </div>
