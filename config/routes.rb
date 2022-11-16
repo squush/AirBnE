@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   root to: "pages#home"
 
   # index show new create edit update destroy
-  resources :crimes
+  resources :crimes do
+    resources :bookings, only: %i[new create]
+  end
 
   get '/my_crimes', to: 'crimes#my_crimes'
   resources :users, only: %i[show] do

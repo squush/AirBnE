@@ -21,14 +21,41 @@ User.create(
   username: 'User A',
   bio: 'Definitely not a criminal'
 )
-burglary = Crime.create(
-  crime_type: "burglary",
-  area: "NDG, Montreal",
-  price: 100,
-  user: User.last,
-  years_experience: 10
+
+vinh = User.create(
+  email: 'b@b.b',
+  password: '123456',
+  username: 'vinh_tho',
+  bio: 'definitely not a criminal, but i do mug from time to time'
 )
 
+Crime.create(
+  crime_type: "Mugging",
+  area: "Kensington Market, Toronto",
+  # Price in dollars
+  price: 500,
+  user: vinh,
+  years_experience: 5
+)
+
+10.times do
+  user = User.create(
+    # TODO: Migrations for username and other missing cols
+    #       And rename crime_date to just date
+    username: Faker::Superhero.name.gsub(" ","_"),
+    email: Faker::Internet.email,
+    password: '123456',
+    bio: Faker::Lorem.sentence
+  )
+
+  print "Creating crimes for #{user.email}: "
+  crimes = ["Robbery", "Auto Theft", "Assault", "Mugging", "Jaywalking", "Littering", "Forgery"]
+  cities = [
+    "NDG, Montreal", "Rosemont, Montreal", "Hochelaga, Montreal",
+    "The Beaches, Toronto", "Kensington Market, Toronto", "Roncesvalles, Toronto",
+    "Williamsburg, Brooklyn", "Greenwich Village, Manhattan", "Halifax",
+    "Paris", "Bishkek", "Macau", "Brussels", "Miami", "Beijing", "Seoul"
+  ]
 
 # Login as this user
 User.create(

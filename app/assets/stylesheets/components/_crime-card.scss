@@ -2,10 +2,19 @@
   width: 300px;
   border: 5px solid gray;
   margin: 15px;
+  text-decoration: none;
 }
 
 .crime-card h3 {
   // Need to add correct color variable for below green
-  color: #379B6D;
+  color: $green;
   text-transform: capitalize;
 }
+
+.text-secondary h4 {
+  word-break: break-all;
+}
+
+// .text-info {
+//   color: $green;
+// }

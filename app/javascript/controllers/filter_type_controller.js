@@ -26,8 +26,5 @@ export default class extends Controller {
         card.style.display = "none";
       } });
     }
-
-
-
   }
 }
