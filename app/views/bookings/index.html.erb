@@ -1,13 +1,44 @@
 <div class="container">
-  <h1>Here are the crimes you have booked</h1>
+  <h1>Bookings</h1>
 
-  <% @bookings.each do |booking| %>
-    <div class="border border-3">
-      <p>Crime: <%= booking.crime.crime_type %></p>
-      <p>Target: <%= booking.target %></p>
-      <p>Date: <%= booking.crime_date.strftime('%A, %d %b %Y %l:%M %p') %></p>
-      <p>Status: <%= booking.status %></p>
-      <p>Cost: $<%= booking.crime.price %></p>
-    <div>
-  <% end %>
+  <div class="mb-5">
+    <h3>Crimes you've hired others to commit</h3>
+    <div class="d-flex flex-wrap">
+      <% @bookings.each do |booking| %>
+        <div class="col-3 card p-2">
+          <p>Crime: <%= booking.crime.crime_type %></p>
+          <p>Target: <%= booking.target %></p>
+          <p>Date: <%= booking.crime_date.strftime('%A, %d %b %Y %l:%M %p') %></p>
+          <p>Cost: $<%= booking.crime.price %></p>
+          <p>Status: <%= booking.status %></p>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <br>
+  <div class="mb-5">
+    <h3>Crimes you need to commit</h3>
+
+    <div class="d-flex flex-wrap">
+      <% @my_crime_bookings.each do |my_crime_booking| %>
+        <div class="col-3 card p-2">
+          <p>Crime: <%= my_crime_booking.crime.crime_type %></p>
+          <p>Target: <%= my_crime_booking.target %></p>
+          <p>Date: <%= my_crime_booking.crime_date.strftime('%A, %d %b %Y %l:%M %p') %></p>
+          <p>Cost: $<%= my_crime_booking.crime.price %></p>
+          <p>Status: <%= my_crime_booking.status %></p>
+          <% if my_crime_booking.status == "pending" %>
+            <%= link_to "approve",
+              approve_booking_path(my_crime_booking),
+              class: "btn btn-outline-success"
+            %>
+            <%= link_to "reject",
+              reject_booking_path(my_crime_booking),
+              class: "btn btn-outline-danger"
+            %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
 </div>
