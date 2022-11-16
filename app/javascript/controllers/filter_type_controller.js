@@ -22,7 +22,7 @@ export default class extends Controller {
     } else {
       crime_cards.forEach(card => {
         card.style.display = "block";
-        if (!types_to_show.includes(card.getElementsByTagName("h3")[0].innerText)) {
+        if (!types_to_show.includes(card.getElementsByClassName("crime-type")[0].innerText)) {
         card.style.display = "none";
       } });
     }
