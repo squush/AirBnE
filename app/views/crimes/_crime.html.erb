@@ -1,11 +1,13 @@
 <% @crimes.each do |crime| %>
-  <div class="crime-card">
-    <span>
-      <h3><%= crime.crime_type %></h3>
-      <h4><%= crime.user.email %></h4>
-    <span>
-    <p>$<%= crime.price %></p>
-    <p><%= crime.area %></p>
-    <p><%= crime.years_experience %> years of experience in <%= crime.crime_type %></p>
-  </div>
+  <%= link_to crime_path(crime), class:"text-decoration-none" do %>
+    <div class="crime-card">
+      <span>
+        <div class="crime-type"><h3><%= crime.crime_type %></h3></div>
+        <h4><%= crime.user.username %></h4>
+      <span>
+      <div class="crime-area"><h5><%= crime.area %></h5></div>
+      <p>$<%= crime.price %></p>
+      <p><%= crime.years_experience %> years of experience in <%= crime.crime_type %></p>
+    </div>
+  <% end %>
 <% end %>
