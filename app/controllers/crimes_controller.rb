@@ -1,9 +1,13 @@
 class CrimesController < ApplicationController
   # Jackson
   def index
-    @crimes = Crime.all
+
     get_crime_types
     get_crime_areas
+
+    @query = params[:keywords].split(" ") if params[:keywords]
+
+    @query.nil? ? @crimes = Crime.all : get_crimes_by_query
   end
 
   # Arstanbek
@@ -14,7 +18,7 @@ class CrimesController < ApplicationController
   #  Arstanbek
   def create
     @crime = Crime.new(crime_params)
-
+    @crime.user = current_user
     if @crime.save
       redirect_to @crime, notice: "Crime was successfully created."
     else
@@ -40,7 +44,17 @@ class CrimesController < ApplicationController
     params.require(:crime).permit(:crime_type, :area, :price, :years_experience)
   end
 
-  private
+  # This returns all the crimes where any word of the type or area matches any word of the search query
+  def get_crimes_by_query
+    all_crimes = Crime.all
+    @crimes = []
+    all_crimes.each do |crime|
+      # TODO: possibly add stricter search criteria to account for commas, etc.
+      crime_words = crime.crime_type.split(" ") + crime.area.split(" ")
+      @crimes << crime if @query.any? { |word| crime_words.include?(word) }
+    end
+    return @crimes
+  end
 
   def get_crime_types
     @crime_types = Crime.all.map { |crime| crime.crime_type }

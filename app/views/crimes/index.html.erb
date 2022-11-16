@@ -1,24 +1,28 @@
 <h1>All Crimes</h1>
 
-<h3>Filter by crime:</h3>
-<% @crime_types.each do |type| %>
-  <span>
-    <button class="btn btn-secondary btn-lg" data-controller="filter-type" data-action="click->filter-type#toggle">
-      <%= type %>
-    </button>
-  </span>
-<% end %>
+<div class="container">
+  <h3>Filter by crime:</h3>
+  <% @crime_types.each do |type| %>
+    <span>
+      <button class="btn btn-secondary btn-lg" data-controller="filter-type" data-action="click->filter-type#toggle">
+        <span><%= type %><span>
+      </button>
+    </span>
+  <% end %>
+</div>
 
 <br>
 
-<h3>Filter by area:</h3>
-<% @crime_areas.each do |area| %>
-  <span>
-    <button class="btn btn-secondary btn-lg" data-controller="filter-area" data-action="click->filter-area#toggle">
-      <%= area %>
-    </button>
-  </span>
-<% end %>
+<div class="container">
+  <h3>Filter by area:</h3>
+  <% @crime_areas.each do |area| %>
+    <span>
+      <button class="btn btn-secondary btn-lg" data-controller="filter-area" data-action="click->filter-area#toggle">
+        <span><%= area %><span>
+      </button>
+    </span>
+  <% end %>
+</div>
 
 
 
