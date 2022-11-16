@@ -81,69 +81,69 @@ auto_theft = Crime.create(
 
 
 
-User.create(
-  email: 'c@c.c',
-  password: '123456',
-  username: 'User C',
-  bio: 'Definitely not a criminal'
-)
-jaywalking = Crime.create(
-  crime_type: "jaywalking",
-  area: "Plateau, Montreal",
-  price: 300,
-  user: User.last,
-  years_experience: 21
-)
-littering = Crime.create(
-  crime_type: "littering",
-  area: "Plateau, Montreal",
-  price: 200,
-  user: User.last,
-  years_experience: 18
-)
+# User.create(
+#   email: 'c@c.c',
+#   password: '123456',
+#   username: 'User C',
+#   bio: 'Definitely not a criminal'
+# )
+# jaywalking = Crime.create(
+#   crime_type: "jaywalking",
+#   area: "Plateau, Montreal",
+#   price: 300,
+#   user: User.last,
+#   years_experience: 21
+# )
+# littering = Crime.create(
+#   crime_type: "littering",
+#   area: "Plateau, Montreal",
+#   price: 200,
+#   user: User.last,
+#   years_experience: 18
+# )
 
-Booking.create(
-  target: "Andrew",
-  crime_date: "2022-12-10",
-  status: 0,
-  user: User.first,
-  crime: mugging
-)
-Booking.create(
-  target: "Hugo's car",
-  crime_date: "2022-12-02",
-  status: 0,
-  user: User.first,
-  crime: auto_theft
-)
-Booking.create(
-  target: "rue St Catherine",
-  crime_date: "2022-12-05",
-  status: 0,
-  user: User.second,
-  crime: jaywalking
-)
-Booking.create(
-  target: "parc Angrignon",
-  crime_date: "2022-12-06",
-  status: 0,
-  user: User.second,
-  crime: littering
-)
-Booking.create(
-  target: "Arstanbek's apartment",
-  crime_date: "2022-12-06",
-  status: 0,
-  user: User.third,
-  crime: burglary
-)
-Booking.create(
-  target: "Arstanbek's apartment",
-  crime_date: "2022-12-06",
-  status: 0,
-  user: User.third,
-  crime: burglary
-)
+# Booking.create(
+#   target: "Andrew",
+#   crime_date: "2022-12-10",
+#   status: 0,
+#   user: User.first,
+#   crime: mugging
+# )
+# Booking.create(
+#   target: "Hugo's car",
+#   crime_date: "2022-12-02",
+#   status: 0,
+#   user: User.first,
+#   crime: auto_theft
+# )
+# Booking.create(
+#   target: "rue St Catherine",
+#   crime_date: "2022-12-05",
+#   status: 0,
+#   user: User.second,
+#   crime: jaywalking
+# )
+# Booking.create(
+#   target: "parc Angrignon",
+#   crime_date: "2022-12-06",
+#   status: 0,
+#   user: User.second,
+#   crime: littering
+# )
+# Booking.create(
+#   target: "Arstanbek's apartment",
+#   crime_date: "2022-12-06",
+#   status: 0,
+#   user: User.third,
+#   crime: burglary
+# )
+# Booking.create(
+#   target: "Arstanbek's apartment",
+#   crime_date: "2022-12-06",
+#   status: 0,
+#   user: User.third,
+#   crime: burglary
+# )
 
 
 
