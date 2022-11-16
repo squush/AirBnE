@@ -26,7 +26,7 @@ User.create(
     #       And rename crime_date to just date
     username: Faker::Superhero.name.gsub(" ","_"),
     email: Faker::Internet.email,
-    password: 'qweasd',
+    password: '123456',
     bio: Faker::Lorem.sentence
   )
 
