@@ -1,27 +1,28 @@
 <div class="container">
   <h1 class="text-info">All Crimes</h1>
-
-  <h3>Filter by crime:</h3>
-  <div class="d-flex">
-    <% @crime_types.each do |type| %>
-      <button class="btn btn-secondary btn-lg" data-controller="filter-type" data-action="click->filter-type#toggle">
-        <span><%= type %></span>
-      </button>
-    <% end %>
+  <div class="d-flex flex-wrap justify-content-between">
+    <h3>Filter by crime:</h3>
+      <% @crime_types.each do |type| %>
+        <button class="btn btn-warning btn-sm" data-controller="filter-type" data-action="click->filter-type#toggle">
+          <span><%= type %></span>
+        </button>
+      <% end %>
   </div>
-
 
   <br>
-  <div class="d-flex flex-wrap">
+
+  <div class="d-flex flex-wrap justify-content-between">
     <h3>Filter by area:</h3>
     <% @crime_areas.each do |area| %>
-      <button class="btn btn-secondary btn-lg" data-controller="filter-area" data-action="click->filter-area#toggle">
-        <span><%= area %></span>
-      </button>
+      <div>
+        <button class="btn btn-secondary btn-sm" data-controller="filter-area" data-action="click->filter-area#toggle">
+          <span><%= area %></span>
+        </button>
+      </div>
     <% end %>
   </div>
 
-  <div class="d-flex flex-wrap">
+  <div class="d-flex flex-wrap justify-content-around">
     <%= render partial: "crime" %>
   </div>
 </div>
