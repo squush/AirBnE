@@ -15,12 +15,12 @@ User.destroy_all
 puts "Creating criminal users..."
 
 
-User.create(
-  email: 'a@a.a',
-  password: '123456',
-  username: 'User A',
-  bio: 'Definitely not a criminal'
-)
+# User.create(
+#   email: 'a@a.a',
+#   password: '123456',
+#   username: 'User A',
+#   bio: 'Definitely not a criminal'
+# )
 
 vinh = User.create(
   email: 'b@b.b',
@@ -58,26 +58,26 @@ Crime.create(
   ]
 
 # Login as this user
-User.create(
-  email: 'b@b.b',
-  password: '123456',
-  username: 'User B',
-  bio: 'Definitely not a criminal'
-)
-mugging = Crime.create(
-  crime_type: "mugging",
-  area: "Hochelaga, Montreal",
-  price: 50,
-  user: User.last,
-  years_experience: 8
-)
-auto_theft = Crime.create(
-  crime_type: "auto theft",
-  area: "Hochelaga, Montreal",
-  price: 200,
-  user: User.last,
-  years_experience: 15
-)
+# User.create(
+#   email: 'b@b.b',
+#   password: '123456',
+#   username: 'User B',
+#   bio: 'Definitely not a criminal'
+# )
+# mugging = Crime.create(
+#   crime_type: "mugging",
+#   area: "Hochelaga, Montreal",
+#   price: 50,
+#   user: User.last,
+#   years_experience: 8
+# )
+# auto_theft = Crime.create(
+#   crime_type: "auto theft",
+#   area: "Hochelaga, Montreal",
+#   price: 200,
+#   user: User.last,
+#   years_experience: 15
+# )
 
 
 
