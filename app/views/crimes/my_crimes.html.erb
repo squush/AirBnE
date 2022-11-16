@@ -1,8 +1,28 @@
 <div class="container">
-  <h1 style="color:black">My crimes</h1>
-  <ul>
+  <h1 class="mb-4 text-primary">My crimes</h1>
+  <div class="d-flex flex-wrap">
     <% @my_crimes.each do |crime|%>
-    <li> <%= crime.crime_type %> </li>
+      <div class="p-1 col-3 d-grid text-center">
+        <div class="card card-secondary p-2 border-secondary d-flex justify-content-between">
+          <h3>
+            <% what = crime.crime_type.capitalize %>
+            <% where = crime.area.capitalize %>
+            <%= link_to "#{what} in #{where}", crime_path(crime),
+              class: "text-decoration-none text-secondary p-2"
+            %>
+          </h3>
+          <div class="d-flex justify-content-between">
+            <div class="d-flex flex-column align-items-start">
+              <p class="m-0">Price</p>
+              <p class="m-0"><strong>$<%= crime.price %></strong></p>
+            </div>
+            <div class="d-flex flex-column align-items-end">
+              <p class="m-0">Experience</p>
+              <p class="m-0"><strong><%= crime.years_experience %> years</strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
     <% end %>
-  </ul>
+  </div>
 </div>
