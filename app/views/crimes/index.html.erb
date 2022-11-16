@@ -14,11 +14,13 @@
   <br>
 
   <h3>Filter by area:</h3>
-  <% @crime_areas.each do |area| %>
-    <button class="btn btn-secondary btn-lg" data-controller="filter-area" data-action="click->filter-area#toggle">
-      <span><%= area %></span>
-    </button>
-  <% end %>
+  <div class="d-flex">
+    <% @crime_areas.each do |area| %>
+      <button class="btn btn-secondary btn-lg" data-controller="filter-area" data-action="click->filter-area#toggle">
+        <span><%= area %></span>
+      </button>
+    <% end %>
+  </div>
 </div>
 
 

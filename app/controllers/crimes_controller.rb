@@ -6,7 +6,6 @@ class CrimesController < ApplicationController
     get_crime_areas
 
     @query = params[:keywords].split(" ") if params[:keywords]
-
     @query.nil? ? @crimes = Crime.all : get_crimes_by_query
   end
 
@@ -57,6 +56,7 @@ class CrimesController < ApplicationController
       crime_words = crime.crime_type.split(" ") + crime.area.split(" ")
       @crimes << crime if @query.any? { |word| crime_words.include?(word) }
     end
+    @crimes = @crimes.sort_by { |crime| crime.price }
     return @crimes
   end
 
