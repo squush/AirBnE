@@ -1,4 +1,4 @@
-<%= simple_form_for crime do |f| %>
+<%= simple_form_for [@crime, @booking] do |f| %>
   <%= f.input :target %>
   <%= f.input :crime_date %>
   <%= f.button :submit, class:"btn btn-success" %>
