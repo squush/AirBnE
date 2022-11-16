@@ -1,14 +1,34 @@
 class BookingsController < ApplicationController
-  before_action :set_booking, only: %i[show]
+  before_action :set_booking, only: %i[show approve reject]
   before_action :set_crime, only: %i[new create]
 
   def index
     @bookings = Booking.where(user: current_user)
+    @my_crime_bookings = Booking.all.select do |my_crime_booking|
+      my_crime_booking.crime.user == current_user
+    end
   end
 
   def show
     @user = current_user
-    # raise
+  end
+
+  def approve
+    @booking.status = 1
+    if @booking.save
+      redirect_to user_bookings_path(current_user)
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
+
+  def reject
+    @booking.status = 2
+    if @booking.save
+      redirect_to user_bookings_path(current_user)
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   # anabelle
