@@ -19,7 +19,12 @@
     <p>
       <%= link_to "edit" if @user == current_user %>
       <%= link_to "delete" if @user == current_user %>
-      <%= link_to "book" unless @user == current_user %>
+      <%# <%= link_to "book" unless @user == current_user %>
+       <%# <a class="banner-button btn-flat" href="#">Book this crime</a> %>
+       <% unless @user == current_user %>
+      <%= link_to "Book this crime", new_crime_booking_path(@crime) %>
+      <% end %>
+      <br>
     </p>
   </div>
 </div>
