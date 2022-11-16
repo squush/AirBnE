@@ -13,13 +13,13 @@ class BookingsController < ApplicationController
   # anabelle
   def new
     @booking = Booking.new
-    authorize @booking
+    # authorize @booking
   end
 
   def create
     @booking = Booking.new(booking_params)
     @booking.user = current_user
-    authorize @booking
+    # authorize @booking
   end
 
   private
