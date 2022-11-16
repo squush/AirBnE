@@ -10,17 +10,6 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
-<<<<<<< HEAD
-        <li class="nav-item list-inline">
-          <span>
-          <%= form_tag crimes_path, method: :get do %>
-            <%= text_field_tag 'keywords', nil, placeholder: "Search for crimes", class: "form-control" %>
-            <%= submit_tag 'Search', name: nil %>
-          <% end %>
-          </span>
-        </li>
-=======
->>>>>>> 3ad57bdc5decf67bcacad1bdb5e290b68144b422
         <% if user_signed_in? %>
           <li class="nav-item list-inline"
             <span>
