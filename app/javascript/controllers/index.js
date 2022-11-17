@@ -4,9 +4,6 @@
 
 import { application } from "./application"
 
-import FilterAreaController from "./filter_area_controller"
-application.register("filter-area", FilterAreaController)
-
 import FilterTypeController from "./filter_type_controller"
 application.register("filter-type", FilterTypeController)
 
