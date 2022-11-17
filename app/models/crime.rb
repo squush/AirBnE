@@ -14,4 +14,6 @@ class Crime < ApplicationRecord
     }, using: {
       tsearch: { prefix: true }
     }
+  geocoded_by :area
+  after_validation :geocode, if: :will_save_change_to_area?
 end

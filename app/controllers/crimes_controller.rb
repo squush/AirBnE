@@ -38,6 +38,16 @@ class CrimesController < ApplicationController
     redirect_to crimes_path, notice: "Crime destroyed!"
   end
 
+  def edit
+    @crime = Crime.find(params[:id])
+  end
+
+  def update
+    @crime = Crime.find(params[:id])
+    @crime.update(crime_params)
+    redirect_to crime_path(@crime)
+  end
+
   def my_crimes
     @my_crimes = Crime.all.select { |crime| crime.user == current_user }
   end
