@@ -2,12 +2,12 @@
   <div class="crime-card">
     <%= link_to crime_path(crime), class: "text-decoration-none" do %>
       <div class="crime-type"><h3><%= crime.crime_type %></h3></div>
-      <div class="text-secondary">
-        <h4><%= crime.user.username %></h4>
-        <p>$<%= crime.price %></p>
-        <div class="crime-area"><p><%= crime.area %></p></div>
-        <p><%= crime.years_experience %> years of experience in <%= crime.crime_type %></p>
-      </div>
+        <div class="text-secondary">
+          <h4><%= crime.user.username %></h4>
+          <p>$<%= crime.price %></p>
+          <div class="crime-area"><p><%= crime.area %></p></div>
+          <p><%= crime.years_experience %> years of experience in <%= crime.crime_type %></p>
+        </div>
     <% end %>
   </div>
 <% end %>

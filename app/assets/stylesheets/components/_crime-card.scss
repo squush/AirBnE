@@ -1,18 +1,24 @@
 .crime-card {
   width: 300px;
-  border: 5px solid gray;
-  margin: 15px;
+  border: 2px solid $gray;
+  border-radius: 5px;
+  margin: 10px;
   text-decoration: none;
+  padding: 15px;
 }
 
 .crime-card h3 {
-  // Need to add correct color variable for below green
-  color: $green;
+  color: $red;
   text-transform: capitalize;
+  text-align: center;
 }
 
+.text-secondary {
+  color: $gray;
+}
 .text-secondary h4 {
   word-break: break-all;
+  color: $grayred;
 }
 
 // .text-info {
