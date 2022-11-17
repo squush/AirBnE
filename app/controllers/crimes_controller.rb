@@ -1,16 +1,12 @@
 class CrimesController < ApplicationController
-  # before_action :get_crime_types, only: %i[index]
-  # before_action :get_crime_areas, only: %i[index]
-  # before_action :all_crimes_by_price, only: %i[index]
+  before_action :get_crime_types, only: %i[index]
 
-  # Jackson
   def index
-    # get_crime_types
-    # get_crime_areas
-    # @query = params[:keywords].split(" ") if params[:keywords]
-    # @query.nil? ? all_crimes_by_price : get_crimes_by_query
+    # Filtering on crime index
+    @query = params[:query].split(" ") if params[:query]
+    @query.present? ? @crimes = Crime.all.search_by_type_and_area(params[:query]).order(:price) : @crimes = Crime.all.order(:price)
 
-    @crimes = Crime.all
+    # Mapbox on crime index
     @markers = @crimes.geocoded.map do |crime|
       {
         lat: crime.latitude,
@@ -19,12 +15,10 @@ class CrimesController < ApplicationController
     end
   end
 
-  # Arstanbek
   def new
     @crime = Crime.new
   end
 
-  #  Arstanbek
   def create
     @crime = Crime.new(crime_params)
     @crime.user = current_user
@@ -35,8 +29,6 @@ class CrimesController < ApplicationController
     end
   end
 
-  # Jackson made the initial
-  # Andrew made the rest
   def show
     @crime = Crime.find(params[:id])
     @user = User.find(@crime.user.id)
@@ -62,7 +54,6 @@ class CrimesController < ApplicationController
     @my_crimes = Crime.all.select { |crime| crime.user == current_user }
   end
 
-  # Arstanbek added private set_crime and crime_params
   private
 
   def set_crime
@@ -77,11 +68,5 @@ class CrimesController < ApplicationController
     @crime_types = Crime.all.map { |crime| crime.crime_type.capitalize }
     @crime_types = @crime_types.uniq
     return @crime_types
-  end
-
-  def get_crime_areas
-    @crime_areas = Crime.all.map { |crime| crime.area }
-    @crime_areas = @crime_areas.uniq
-    return @crime_areas
   end
 end
