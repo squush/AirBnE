@@ -1,0 +1,18 @@
+<% @bookings.each do |booking| %>
+  <div class="col-3 card p-2">
+    <%= link_to booking_path(booking), class: "text-decoration-none" do %>
+      <p class="text-green"><%= booking.crime.crime_type.capitalize  %></p>
+      <div>
+        <% if booking.photo.attached? %>
+          <%# TODO: Refactor the crop/width/height %>
+          <%= cl_image_tag booking.photo.key, height: 300, width: 300, crop: :fit %>
+        <% end %>
+      </div>
+      <p>Target: <%= booking.target %></p>
+      <p>Criminal: <%= booking.crime.user.username %></p>
+      <p>Date: <%= booking.date.strftime('%a, %e %b %Y') %></p>
+      <p>Cost: $<%= booking.crime.price %></p>
+      <p>Status: <%= booking.status %></p>
+    <% end %>
+  </div>
+<% end %>

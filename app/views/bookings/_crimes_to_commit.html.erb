@@ -1,0 +1,28 @@
+<% @my_crime_bookings.each do |booking| %>
+  <div class="col-3 card p-2">
+    <%= link_to booking_path(booking), class: "text-decoration-none" do %>
+      <p><%= booking.crime.crime_type.capitalize %></p>
+      <div>
+        <% if booking.photo.attached? %>
+          <%# TODO: Refactor the crop/width/height %>
+          <%= cl_image_tag booking.photo.key, height: 300, width: 300, crop: :fit %>
+        <%# add else with placeholder image %>
+        <% end %>
+      </div>
+      <p>Target: <%= booking.target %></p>
+      <p>Date: <%= booking.date.strftime('%a, %e %b %Y') %></p>
+      <p>Cost: $<%= booking.crime.price %></p>
+      <p>Status: <%= booking.status %></p>
+      <% if booking.status == "pending" %>
+        <%= link_to "approve",
+          approve_booking_path(booking),
+          class: "btn btn-outline-success"
+        %>
+        <%= link_to "reject",
+          reject_booking_path(booking),
+          class: "btn btn-outline-danger"
+        %>
+      <% end %>
+    <% end %>
+  </div>
+<% end %>

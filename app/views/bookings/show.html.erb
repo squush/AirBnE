@@ -1,22 +1,18 @@
 <div class="container">
-  <h1 class="text-info">This is a booking</h1>
-
-  <p>Crime: <%= @booking.crime.crime_type %></p>
+  <h1 class="text-info"><%= @booking.crime.crime_type.capitalize %></h1>
   <p>Target: <%= @booking.target %></p>
   <p>Date: <%= @booking.date.strftime('%a, %e %b %Y') %></p>
   <p>Status: <%= @booking.status %></p>
-
-
   <p>Cost: $<%= @booking.crime.price %></p>
-
-  <%# TODO: Need logic below to display buyer if the user is the criminal
-        and display the criminal if the user is the buyer %>
 
   <% if @booking.user == current_user %>
     <p>Criminal: <%= @booking.crime.user.username %></p>
     <p>Client: you</p>
+    <p><%= link_to "Back to Bookings", bookings_path %></p>
+    <p><%= link_to "Cancel Booking", booking_path(@booking), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %></p>
   <% else %>
     <p>Criminal: you</p>
     <p>Client: <%= @booking.user.username %></p>
+    <%= link_to "Back to Bookings", bookings_path %>
   <% end %>
 </div>
