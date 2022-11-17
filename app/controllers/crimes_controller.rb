@@ -58,7 +58,7 @@ class CrimesController < ApplicationController
   end
 
   def get_crimes_by_query
-    @crimes = Crime.all.search_by_type_and_area_and_user(params[:query])
+    @crimes = Crime.all.search_by_type_and_area(params[:query])
     @crimes = @crimes.sort_by { |crime| crime.price }
   end
 
