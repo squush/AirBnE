@@ -17,8 +17,8 @@ puts "Creating criminal users..."
 User.create(
   email: 'a@a.a',
   password: '123456',
-  username: 'test_user',
-  bio: 'Definitely not a criminal'
+  username: 'Billy_The_Kid',
+  bio: 'I like to litter'
 )
 
 vinh = User.create(
