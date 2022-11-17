@@ -19,5 +19,7 @@ Rails.application.routes.draw do
   get '/bookings', to: 'bookings#index'
 
   resources :bookings, only: %i[show destroy]
-  resources :users, only: %i[show edit update destroy]
+
+  get '/profile/edit', to: 'users#edit', as: :user
+  patch '/profile', to: 'users#update'
 end
