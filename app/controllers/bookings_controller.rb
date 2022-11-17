@@ -3,6 +3,7 @@ class BookingsController < ApplicationController
   before_action :set_crime, only: %i[new create]
 
   def index
+    # TODO: Refactor these variable names
     @bookings = Booking.where(user: current_user)
     @my_crime_bookings = Booking.all.select do |my_crime_booking|
       my_crime_booking.crime.user == current_user
