@@ -3,7 +3,7 @@
 
   <p>Crime: <%= @booking.crime.crime_type %></p>
   <p>Target: <%= @booking.target %></p>
-  <p>Date: <%= @booking.date %></p>
+  <p>Date: <%= @booking.date.strftime('%a, %e %b %Y') %></p>
   <p>Status: <%= @booking.status %></p>
 
 
@@ -11,6 +11,12 @@
 
   <%# TODO: Need logic below to display buyer if the user is the criminal
         and display the criminal if the user is the buyer %>
-  <p>Buyer: <%= @booking.user.username %></p>
-  <p>Criminal: <%= @booking.crime.user.username %></p>
+
+  <% if @booking.user == current_user %>
+    <p>Criminal: <%= @booking.crime.user.username %></p>
+    <p>Client: you</p>
+  <% else %>
+    <p>Criminal: you</p>
+    <p>Client: <%= @booking.user.username %></p>
+  <% end %>
 </div>
