@@ -1,0 +1,10 @@
+<h1>Edit <%= @crime.crime_type %></h1>
+
+<%= render "form", crime: @crime %>
+
+<br>
+
+<div>
+  <%= link_to "Show this crime", @crime %> |
+  <%= link_to "Back to my crimes", my_crimes_path %>
+</div>

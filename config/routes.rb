@@ -7,6 +7,8 @@ Rails.application.routes.draw do
     #       the crime's show page. This will require changes downstream.
     resources :bookings, only: %i[new create]
   end
+  get '/my_crimes/:id/edit', to: 'crimes#edit', as: :edit_crime
+  patch "crimes/:id", to: "crimes#update"
 
   get '/my_crimes', to: 'crimes#my_crimes'
   get '/profile', to: 'users#profile'
