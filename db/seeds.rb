@@ -57,7 +57,7 @@ jaywalking = Crime.create(
   years_experience: 21
 )
 prank_call = Crime.create(
-  crime_type: "prank all",
+  crime_type: "prank call",
   area: "Hochelaga, Montréal",
   price: 20,
   user: billy,
@@ -80,7 +80,7 @@ littering = Crime.create(
 espionage = Crime.create(
   crime_type: "espionage",
   area: "Plateau, Montréal",
-  price: 29.99,
+  price: 30,
   user: user_c,
   years_experience: 0
 )
