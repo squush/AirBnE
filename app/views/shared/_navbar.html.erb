@@ -13,9 +13,13 @@
         <% if user_signed_in? %>
           <li class="nav-item list-inline"
             <span>
-            <%= form_tag crimes_path, class: "d-flex", method: :get do %>
-              <%= text_field_tag 'keywords', nil, placeholder: "Search for crimes", class: "form-control" %>
-              <%= submit_tag 'Search', name: nil %>
+            <%= form_with url: crimes_path, method: :get, class: "d-flex" do %>
+              <%= text_field_tag :query,
+                params[:query],
+                class: "form-control",
+                placeholder: "Search for crimes"
+              %>
+              <%= submit_tag "Search", class: "btn btn-primary" %>
             <% end %>
             </span>
           </li>

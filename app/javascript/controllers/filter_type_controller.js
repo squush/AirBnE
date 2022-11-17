@@ -18,6 +18,7 @@ export default class extends Controller {
 
     // Default to displaying all crimes, hide all crimes that were not selected
     if (types_to_show.length === 0) {
+      console.log("hello");
       crime_cards.forEach(card => { card.style.display = "block" });
     } else {
       crime_cards.forEach(card => {
