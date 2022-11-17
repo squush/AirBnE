@@ -63,6 +63,6 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-    params.require(:booking).permit(:target, :crime_date)
+    params.require(:booking).permit(:target, :crime_date, :photo)
   end
 end

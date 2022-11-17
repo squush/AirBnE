@@ -7,7 +7,14 @@
       <% @bookings.each do |booking| %>
         <div class="col-3 card p-2">
           <p>Crime: <%= booking.crime.crime_type %></p>
+          <div>
+            <% if booking.photo.attached? %>
+              <%# TODO: Refactor the crop/width/height %>
+              <%= cl_image_tag booking.photo.key, height: 300, width: 300, crop: :fit %>
+            <% end %>
+          </div>
           <p>Target: <%= booking.target %></p>
+          <p>Criminal: <%= booking.crime.user.username %></p>
           <p>Date: <%= booking.crime_date.strftime('%A, %d %b %Y %l:%M %p') %></p>
           <p>Cost: $<%= booking.crime.price %></p>
           <p>Status: <%= booking.status %></p>
@@ -20,20 +27,27 @@
     <h3>Crimes you need to commit</h3>
 
     <div class="d-flex flex-wrap">
-      <% @my_crime_bookings.each do |my_crime_booking| %>
+      <% @my_crime_bookings.each do |booking| %>
         <div class="col-3 card p-2">
-          <p>Crime: <%= my_crime_booking.crime.crime_type %></p>
-          <p>Target: <%= my_crime_booking.target %></p>
-          <p>Date: <%= my_crime_booking.crime_date.strftime('%A, %d %b %Y %l:%M %p') %></p>
-          <p>Cost: $<%= my_crime_booking.crime.price %></p>
-          <p>Status: <%= my_crime_booking.status %></p>
-          <% if my_crime_booking.status == "pending" %>
+          <p>Crime: <%= booking.crime.crime_type %></p>
+          <div>
+            <% if booking.photo.attached? %>
+              <%# TODO: Refactor the crop/width/height %>
+              <%= cl_image_tag booking.photo.key, height: 300, width: 300, crop: :fit %>
+            <%# add else with placeholder image %>
+            <% end %>
+          </div>
+          <p>Target: <%= booking.target %></p>
+          <p>Date: <%= booking.crime_date.strftime('%A, %d %b %Y %l:%M %p') %></p>
+          <p>Cost: $<%= booking.crime.price %></p>
+          <p>Status: <%= booking.status %></p>
+          <% if booking.status == "pending" %>
             <%= link_to "approve",
-              approve_booking_path(my_crime_booking),
+              approve_booking_path(booking),
               class: "btn btn-outline-success"
             %>
             <%= link_to "reject",
-              reject_booking_path(my_crime_booking),
+              reject_booking_path(booking),
               class: "btn btn-outline-danger"
             %>
           <% end %>
