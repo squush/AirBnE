@@ -17,7 +17,10 @@
   <%# Div with navigation options for users %>
   <div>
     <p>
-      <%= link_to "edit" if @user == current_user %>
+      <% if @user == current_user %>
+        <%= link_to "edit", edit_crime_path(@crime) %>
+      <% end %>
+
       <% if @user == current_user %>
         <%= link_to "delete", crime_path(@crime), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
       <% end %>
