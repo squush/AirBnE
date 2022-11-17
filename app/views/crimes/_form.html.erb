@@ -1,10 +1,8 @@
-<div class="simple-form">
-  <%= simple_form_for crime do |f| %>
-    <%= f.input :crime_type %>
-    <%= f.input :area %>
-    <%# fix price form type %>
-    <%= f.input :price %>
-    <%= f.input :years_experience %>
-    <%= f.button :submit, class:"btn btn-success" %>
-  <% end %>
-</div>
+<%= simple_form_for crime do |f| %>
+  <%= f.input :crime_type %>
+  <%= f.input :area %>
+  <%# fix price form type %>
+  <%= f.input :price %>
+  <%= f.input :years_experience %>
+  <%= f.button :submit, class:"btn btn-success" %>
+<% end %>
