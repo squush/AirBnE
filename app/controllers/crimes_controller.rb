@@ -1,12 +1,21 @@
 class CrimesController < ApplicationController
+  before_action :get_crime_types, only: %i[index]
+  before_action :get_crime_areas, only: %i[index]
+  # before_action :all_crimes_by_price, only: %i[index]
+
   # Jackson
   def index
-
-    get_crime_types
-    get_crime_areas
-
-    @query = params[:keywords].split(" ") if params[:keywords]
-    @query.nil? ? all_crimes_by_price : get_crimes_by_query
+    @crimes = Crime.all
+    # raise
+    # @query = params[:keywords].split(" ") if params[:keywords]
+    # @query.nil? ? all_crimes_by_price : get_crimes_by_query
+    @markers = @crimes.geocoded.map do |crime|
+      {
+        lat: crime.latitude,
+        lng: crime.longitude
+      }
+    end
+    # raise
   end
 
   # Arstanbek
