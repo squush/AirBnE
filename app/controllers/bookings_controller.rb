@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  before_action :set_booking, only: %i[show approve reject]
+  before_action :set_booking, only: %i[show approve reject destroy]
   before_action :set_crime, only: %i[new create]
 
   def index
@@ -51,6 +51,11 @@ class BookingsController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    @booking.destroy
+    redirect_to bookings_path, notice: "Booking destroyed!"
   end
 
   private
