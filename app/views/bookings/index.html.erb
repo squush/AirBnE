@@ -1,9 +1,7 @@
 <div class="container">
-  <h1>Bookings</h1>
-
-  <div class="mb-5">
-    <h3>Crimes you've hired others to commit</h3>
-    <div class="d-flex flex-wrap">
+  <h1 class="mb-5 text-primary">My bookings</h1>
+    <h3>Crimes you need to commit</h3>
+  <div class="d-flex flex-wrap">
       <% @bookings.each do |booking| %>
         <div class="col-3 card p-2">
           <p>Crime: <%= booking.crime.crime_type %></p>
@@ -16,9 +14,8 @@
     </div>
   </div>
   <br>
-  <div class="mb-5">
-    <h3>Crimes you need to commit</h3>
 
+  <div class="container">
     <div class="d-flex flex-wrap">
       <% @my_crime_bookings.each do |my_crime_booking| %>
         <div class="col-3 card p-2">
