@@ -3,8 +3,7 @@
 
   <p>Crime: <%= @booking.crime.crime_type %></p>
   <p>Target: <%= @booking.target %></p>
-  <%# Add a closing erb tag before the p closing tag when uncommenting %>
-  <%# <p>Date: <%= @booking.crime_date.strftime('%A, %d %b %Y %l:%M %p') </p> %>
+  <p>Date: <%= @booking.date.strftime('%a, %e %b %Y') %></p>
   <p>Status: <%= @booking.status %></p>
 
 
