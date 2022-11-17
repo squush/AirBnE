@@ -3,6 +3,7 @@ class BookingsController < ApplicationController
   before_action :set_crime, only: %i[new create]
 
   def index
+    # TODO: Refactor these variable names
     @bookings = Booking.where(user: current_user)
     @my_crime_bookings = Booking.all.select do |my_crime_booking|
       my_crime_booking.crime.user == current_user
@@ -11,24 +12,6 @@ class BookingsController < ApplicationController
 
   def show
     @user = current_user
-  end
-
-  def approve
-    @booking.status = 1
-    if @booking.save
-      redirect_to user_bookings_path(current_user)
-    else
-      render :new, status: :unprocessable_entity
-    end
-  end
-
-  def reject
-    @booking.status = 2
-    if @booking.save
-      redirect_to user_bookings_path(current_user)
-    else
-      render :new, status: :unprocessable_entity
-    end
   end
 
   # anabelle
@@ -42,11 +25,31 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     @booking.crime = @crime
     if @booking.save
-      redirect_to  user_bookings_path([@booking.user])
+      redirect_to  bookings_path([@booking.user])
     else
       render :new, status: :unprocessable_entity
     end
     # authorize @booking
+  end
+
+  # Andrew
+  def approve
+    @booking.status = 1
+    if @booking.save
+      redirect_to bookings_path(current_user)
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
+
+  # Andrew
+  def reject
+    @booking.status = 2
+    if @booking.save
+      redirect_to bookings_path(current_user)
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   private

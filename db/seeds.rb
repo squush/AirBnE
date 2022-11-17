@@ -14,183 +14,149 @@ User.destroy_all
 
 puts "Creating criminal users..."
 
-
-User.create(
+user_a = User.create(
   email: 'a@a.a',
-  password: '123456',
-  username: 'User A',
-  bio: 'Definitely not a criminal'
+  password: '111111',
+  username: 'Definitely Not Vinh Tho',
+  bio: 'I am likely not a criminal'
+)
+auto_theft = Crime.create(
+  crime_type: "auto theft",
+  area: "Hochelaga, Montréal",
+  price: 175,
+  user: user_a,
+  years_experience: 15
+)
+burglary = Crime.create(
+  crime_type: "burglary",
+  area: "Hochelaga, Montréal",
+  price: 120,
+  user: user_a,
+  years_experience: 0
 )
 
-vinh = User.create(
+# Login as this user
+billy = User.create(
   email: 'b@b.b',
-  password: '123456',
-  username: 'vinh_tho',
-  bio: 'definitely not a criminal, but i do mug from time to time'
+  password: '111111',
+  username: 'Billy the Good Boy',
+  bio: 'I am definitely not a criminal'
+)
+mugging = Crime.create(
+  crime_type: "mugging",
+  area: "Hochelaga, Montréal",
+  price: 120,
+  user: billy,
+  years_experience: 8
+)
+jaywalking = Crime.create(
+  crime_type: "jaywalking",
+  area: "Hochelaga, Montréal",
+  price: 40,
+  user: billy,
+  years_experience: 21
 )
 
-Crime.create(
-  crime_type: "Mugging",
-  area: "Kensington Market, Toronto",
-  # Price in dollars
-  price: 500,
-  user: vinh,
-  years_experience: 5
+user_c = User.create(
+  email: 'c@c.c',
+  password: '111111',
+  username: 'Johnny Bad Boy',
+  bio: 'I am probably not a criminal'
+)
+littering = Crime.create(
+  crime_type: "littering",
+  area: "Plateau, Montréal",
+  price: 200,
+  user: user_c,
+  years_experience: 18
+)
+murder = Crime.create(
+  crime_type: "murder",
+  area: "Plateau, Montréal",
+  price: 29.99,
+  user: user_c,
+  years_experience: 0
 )
 
-10.times do
+# Jobs Billy is being paid for
+Booking.create(
+  target: "Stephane",
+  crime_date: "2022-12-10",
+  user: user_a,
+  crime: mugging
+)
+Booking.create(
+  target: "rue Ste.-Catherine",
+  crime_date: "2022-12-02",
+  user: user_a,
+  crime: jaywalking
+)
+Booking.create(
+  target: "Pascal",
+  crime_date: "2022-12-05",
+  user: user_c,
+  crime: mugging
+)
+Booking.create(
+  target: "avenue Casgrain",
+  crime_date: "2022-12-06",
+  user: user_c,
+  crime: jaywalking
+)
+
+# Jobs Billy is paying for
+Booking.create(
+  target: "Hugo's car",
+  crime_date: "2022-12-04",
+  user: billy,
+  crime: auto_theft
+)
+Booking.create(
+  target: "in front of Le Wagon",
+  crime_date: "2022-12-01",
+  user: billy,
+  crime: littering
+)
+Booking.create(
+  target: "Andrew",
+  crime_date: "2022-12-06",
+  user: billy,
+  crime: murder
+)
+Booking.create(
+  target: "Arstanbek's apartment",
+  crime_date: "2022-12-07",
+  user: billy,
+  crime: burglary
+)
+
+5.times do
   user = User.create(
-    # TODO: Migrations for username and other missing cols
-    #       And rename crime_date to just date
     username: Faker::Superhero.name.gsub(" ","_"),
     email: Faker::Internet.email,
-    password: '123456',
+    password: '111111',
     bio: Faker::Lorem.sentence
   )
 
   print "Creating crimes for #{user.email}: "
-  crimes = ["Robbery", "Auto Theft", "Assault", "Mugging", "Jaywalking", "Littering", "Forgery"]
+  crimes = ["robbery", "auto theft", "assault", "mugging", "jaywalking", "littering", "forgery"]
   cities = [
-    "NDG, Montreal", "Rosemont, Montreal", "Hochelaga, Montreal",
-    "The Beaches, Toronto", "Kensington Market, Toronto", "Roncesvalles, Toronto",
-    "Williamsburg, Brooklyn", "Greenwich Village, Manhattan", "Halifax",
-    "Paris", "Bishkek", "Macau", "Brussels", "Miami", "Beijing", "Seoul"
+    "NDG, Montréal", "Hochelaga, Montréal", "The Beaches, Toronto", "Kensington Market, Toronto",
+    "Bishkek", "Manhattan", "Halifax", "Paris", "Macau", "Brussels", "Miami", "Beijing", "Seoul"
   ]
 
-# Login as this user
-User.create(
-  email: 'b@b.b',
-  password: '123456',
-  username: 'User B',
-  bio: 'Definitely not a criminal'
-)
-mugging = Crime.create(
-  crime_type: "mugging",
-  area: "Hochelaga, Montreal",
-  price: 50,
-  user: User.last,
-  years_experience: 8
-)
-auto_theft = Crime.create(
-  crime_type: "auto theft",
-  area: "Hochelaga, Montreal",
-  price: 200,
-  user: User.last,
-  years_experience: 15
-)
+  3.times do
+    Crime.create(
+      crime_type: crimes.sample,
+      area: cities.sample,
+      price: rand(350..1000),
+      user: user,
+      years_experience: rand(0..30)
+    )
 
-
-
-# User.create(
-#   email: 'c@c.c',
-#   password: '123456',
-#   username: 'User C',
-#   bio: 'Definitely not a criminal'
-# )
-# jaywalking = Crime.create(
-#   crime_type: "jaywalking",
-#   area: "Plateau, Montreal",
-#   price: 300,
-#   user: User.last,
-#   years_experience: 21
-# )
-# littering = Crime.create(
-#   crime_type: "littering",
-#   area: "Plateau, Montreal",
-#   price: 200,
-#   user: User.last,
-#   years_experience: 18
-# )
-
-# Booking.create(
-#   target: "Andrew",
-#   crime_date: "2022-12-10",
-#   status: 0,
-#   user: User.first,
-#   crime: mugging
-# )
-# Booking.create(
-#   target: "Hugo's car",
-#   crime_date: "2022-12-02",
-#   status: 0,
-#   user: User.first,
-#   crime: auto_theft
-# )
-# Booking.create(
-#   target: "rue St Catherine",
-#   crime_date: "2022-12-05",
-#   status: 0,
-#   user: User.second,
-#   crime: jaywalking
-# )
-# Booking.create(
-#   target: "parc Angrignon",
-#   crime_date: "2022-12-06",
-#   status: 0,
-#   user: User.second,
-#   crime: littering
-# )
-# Booking.create(
-#   target: "Arstanbek's apartment",
-#   crime_date: "2022-12-06",
-#   status: 0,
-#   user: User.third,
-#   crime: burglary
-# )
-# Booking.create(
-#   target: "Arstanbek's apartment",
-#   crime_date: "2022-12-06",
-#   status: 0,
-#   user: User.third,
-#   crime: burglary
-# )
-
-
-
-# 10.times do
-#   user = User.create(
-#     # TODO: Migrations for username and other missing cols
-#     #       And rename crime_date to just date
-#     username: Faker::Superhero.name.gsub(" ","_"),
-#     email: Faker::Internet.email,
-#     password: '123456',
-#     bio: Faker::Lorem.sentence
-#   )
-
-#   print "Creating crimes for #{user.email}: "
-#   crimes = ["robbery", "auto theft", "assault", "mugging", "jaywalking", "littering", "forgery"]
-#   cities = [
-#     "NDG, Montreal", "Rosemont, Montreal", "Hochelaga, Montreal",
-#     "The Beaches, Toronto", "Kensington Market, Toronto", "Roncesvalles, Toronto",
-#     "Williamsburg, Brooklyn", "Greenwich Village, Manhattan", "Halifax",
-#     "Paris", "Bishkek", "Macau", "Brussels", "Miami", "Beijing", "Seoul"
-#   ]
-
-#   rand(3..4).times do
-#     Crime.create(
-#       crime_type: crimes.sample,
-#       area: cities.sample,
-#       # Price in dollars
-#       price: rand(50..1000),
-#       user: user,
-#       years_experience: rand(0..30)
-#     )
-
-#     print "#{Crime.last.crime_type}... "
-#   end
-#   puts ""
-# end
-
-# puts "Creating bookings..."
-# 7.times do
-#   Booking.create(
-#     target: Faker::Name.name,
-#     crime_date: Faker::Time.forward(days: 60),
-#     status: 0,
-#     user: User.all.sample,
-#     crime: Crime.all.sample
-#   )
-#   puts "Created job against #{Booking.last.target}"
-# end
+    print "#{Crime.last.crime_type}... "
+  end
+  puts ""
+end
 
 puts "Finished!"

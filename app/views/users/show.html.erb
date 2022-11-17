@@ -1,9 +1,0 @@
-<div class="container">
-  <h1 class="text-info"><%= @user.username %></h1>
-  <p><%= @user.email %></p>
-  <p><%= @user.encrypted_password %></p>
-  <p><%= @user.bio %></p>
-
-  <%# Need to add path here %>
-  <%= link_to "Delete account", "#" if @user == current_user %>
-</div>

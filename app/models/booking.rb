@@ -6,7 +6,8 @@ class Booking < ApplicationRecord
     pending: 0,
     accepted: 1,
     rejected: 2,
-    done: 3
+    cancelled: 3,
+    done: 4
   }
 
   validates :target, presence: true
