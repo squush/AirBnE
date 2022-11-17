@@ -14,5 +14,7 @@ Rails.application.routes.draw do
   get '/approve/:id', to: "bookings#approve", as: :approve_booking
   get '/reject/:id', to: "bookings#reject", as: :reject_booking
 
-  resources :bookings, only: %i[index show destroy]
+  get '/bookings', to: 'bookings#index'
+
+  resources :bookings, only: %i[show destroy]
 end
