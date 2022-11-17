@@ -11,6 +11,6 @@ class Booking < ApplicationRecord
   }
 
   validates :target, presence: true
-  validates :crime_date, presence: true
+  validates :date, presence: true
   # TODO: Possibly a validation that user_id doesn't match the crime's user id?
 end
