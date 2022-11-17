@@ -1,6 +1,8 @@
 <div class="container">
   <h1>Bookings</h1>
 
+  <%# Refactor these two sections into a partial. Use if statement for the
+      Criminal/Client line %>
   <div class="mb-5">
     <h3>Crimes you've hired others to commit</h3>
     <div class="d-flex flex-wrap">
@@ -15,7 +17,7 @@
           </div>
           <p>Target: <%= booking.target %></p>
           <p>Criminal: <%= booking.crime.user.username %></p>
-          <p>Date: <%= booking.crime_date.strftime('%A, %d %b %Y %l:%M %p') %></p>
+          <p>Date: <%= booking.date.strftime('%a, %e %b %Y') %></p>
           <p>Cost: $<%= booking.crime.price %></p>
           <p>Status: <%= booking.status %></p>
         </div>
@@ -38,7 +40,7 @@
             <% end %>
           </div>
           <p>Target: <%= booking.target %></p>
-          <p>Date: <%= booking.crime_date.strftime('%A, %d %b %Y %l:%M %p') %></p>
+          <p>Date: <%= booking.date.strftime('%a, %e %b %Y') %></p>
           <p>Cost: $<%= booking.crime.price %></p>
           <p>Status: <%= booking.status %></p>
           <% if booking.status == "pending" %>
