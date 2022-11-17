@@ -4,10 +4,11 @@ class BookingsController < ApplicationController
 
   def index
     # TODO: Refactor these variable names
-    @bookings = Booking.where(user: current_user)
+    @bookings = Booking.where(user: current_user).sort_by { |booking| booking.date }
     @my_crime_bookings = Booking.all.select do |my_crime_booking|
       my_crime_booking.crime.user == current_user
     end
+    @my_crime_bookings.sort_by! { |booking| booking.date }
   end
 
   def show
@@ -63,6 +64,6 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-    params.require(:booking).permit(:target, :crime_date)
+    params.require(:booking).permit(:target, :date, :photo)
   end
 end
