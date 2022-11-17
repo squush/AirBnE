@@ -82,3 +82,4 @@ end
 # CUSTOM
 gem 'faker'
 gem "cloudinary"
+gem "geocoder"
