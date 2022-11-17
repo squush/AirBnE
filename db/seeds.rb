@@ -12,7 +12,7 @@ puts "Cleaning database..."
 Crime.destroy_all
 User.destroy_all
 
-puts "Creating criminal users..."
+puts "Creating standard users and crimes..."
 
 user_a = User.create(
   email: 'a@a.a',
@@ -85,6 +85,8 @@ espionage = Crime.create(
   years_experience: 0
 )
 
+puts "Creating standard bookings..."
+
 # Jobs Billy is being paid for
 Booking.create(
   target: "Stephane",
@@ -137,7 +139,8 @@ Booking.create(
   crime: burglary
 )
 
-5.times do
+puts "Creating random users..."
+4.times do
   user = User.create(
     username: Faker::Superhero.name.gsub(" ","_"),
     email: Faker::Internet.email,
@@ -152,7 +155,7 @@ Booking.create(
     "Bishkek", "Manhattan", "Halifax", "Paris", "Macau", "Brussels", "Miami", "Beijing", "Seoul"
   ]
 
-  3.times do
+  2.times do
     Crime.create(
       crime_type: crimes.sample,
       area: cities.sample,

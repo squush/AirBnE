@@ -4,12 +4,14 @@
 
 import { application } from "./application"
 
+import FilterAreaController from "./filter_area_controller"
+application.register("filter-area", FilterAreaController)
+
+import FilterTypeController from "./filter_type_controller"
+application.register("filter-type", FilterTypeController)
+
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
-import { Application } from "@hotwired/stimulus"
-import { definitionsFromContext } from "@hotwired/stimulus-webpack-helpers"
-
-window.Stimulus = Application.start()
-const context = require.context(".", true, /\.js$/)
-Stimulus.load(definitionsFromContext(context))
+import MapController from "./map_controller"
+application.register("map", MapController)

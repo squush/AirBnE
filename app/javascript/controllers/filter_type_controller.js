@@ -14,7 +14,7 @@ export default class extends Controller {
     const types_clicked = Array.from(document.getElementsByClassName("clicked"));
     const crime_cards = Array.from(document.getElementsByClassName("crime-card"));
     let types_to_show = [];
-    types_clicked.forEach(type => types_to_show.push(type.innerText));
+    types_clicked.forEach(type => types_to_show.push(type.innerText.toLowerCase()));
 
     // Default to displaying all crimes, hide all crimes that were not selected
     if (types_to_show.length === 0) {
@@ -22,7 +22,7 @@ export default class extends Controller {
     } else {
       crime_cards.forEach(card => {
         card.style.display = "block";
-        if (!types_to_show.includes(card.getElementsByClassName("crime-type")[0].innerText)) {
+        if (!types_to_show.includes(card.getElementsByClassName("crime-type")[0].innerText.toLowerCase())) {
         card.style.display = "none";
       } });
     }
