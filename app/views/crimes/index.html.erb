@@ -1,14 +1,16 @@
 <div class="container">
-  <h1 class="text-info">All Crimes</h1>
+  <h1 class="mb-4 text-primary">All Crimes</h1>
   <div class="d-flex flex-wrap justify-content-between">
-    <h3>Filter by crime:</h3>
+    <h4>Filter by crime:</h4>
       <% @crime_types.each do |type| %>
-        <button class="btn btn-warning btn-sm" data-controller="filter-type" data-action="click->filter-type#toggle">
+        <button class="btn btn-ghost btn-sm" data-controller="filter-type" data-action="click->filter-type#toggle">
+        <div class="<%= type.gsub(/\s+/, "") %> default-icon center"></div>
           <span><%= type %></span>
         </button>
       <% end %>
   </div>
 
+  <br>
   <br>
 
   <div class="d-flex flex-wrap justify-content-around">

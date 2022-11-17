@@ -1,0 +1,67 @@
+.default-icon {
+  background-image: url("https://res.cloudinary.com/dsrgk8jfy/image/upload/v1668717580/user-ninja-solid_vbiump.svg");
+  background-repeat: no-repeat;
+}
+.Autotheft {
+  background-image: url("https://res.cloudinary.com/dsrgk8jfy/image/upload/v1668713253/car-on-solid_qtncp3.svg");
+  background-repeat: no-repeat;
+}
+
+.Burglary {
+  background-image: url("https://res.cloudinary.com/dsrgk8jfy/image/upload/v1668713407/person-through-window-solid_ahr5xv.svg");
+  background-repeat: no-repeat;
+}
+
+.Mugging {
+  background-image: url("https://res.cloudinary.com/dsrgk8jfy/image/upload/v1668715579/wallet-solid_qp8zkf.svg");
+  background-repeat: no-repeat;
+}
+
+.Jaywalking {
+  background-image: url("https://res.cloudinary.com/dsrgk8jfy/image/upload/v1668713358/person-walking-solid_iv6rqy.svg");
+  background-repeat: no-repeat;
+}
+
+.Prankcall {
+  background-image: url("https://res.cloudinary.com/dsrgk8jfy/image/upload/v1668713495/mobile-screen-button-solid_a5eh5t.svg");
+  background-repeat: no-repeat;
+}
+
+.Littering {
+  background-image: url("https://res.cloudinary.com/dsrgk8jfy/image/upload/v1668712973/trash-can-solid_che1jf.svg");
+  background-repeat: no-repeat;
+}
+
+.Espionage {
+  background-image: url("https://res.cloudinary.com/dsrgk8jfy/image/upload/v1668710730/user-secret-solid_jizrcx.svg");
+  background-repeat: no-repeat;
+}
+
+.Robbery {
+  background-image: url("https://res.cloudinary.com/dsrgk8jfy/image/upload/v1668713165/people-robbery-solid_fn4vim.svg");
+  background-repeat: no-repeat;
+}
+
+.Assault {
+  background-image: url("https://res.cloudinary.com/dsrgk8jfy/image/upload/v1668713575/hand-fist-solid_owv5qj.svg");
+  background-repeat: no-repeat;
+}
+
+.Forgery {
+  background-image: url("https://res.cloudinary.com/dsrgk8jfy/image/upload/v1668715716/sack-dollar-solid_rsgipm.svg");
+  background-repeat: no-repeat;
+  color: black;
+}
+
+.clicked span {
+  color: $lightred;
+  text-decoration: underline;
+}
+
+.center {
+  text-align: center;
+  height: 30px;
+  width: 30px;
+  margin: 0 auto;
+  color: black;
+}

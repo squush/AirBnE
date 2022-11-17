@@ -1,9 +1,8 @@
-// #my-crimes {
-//   color: red;
-// }
-
-.text-primary {
-  text-align: center;
+.container2 {
+  margin: 0 auto;
+  max-width: 100%;
+  width: calc(100% - 80px);
+  padding-left: 40px;
+  padding-right: 40px;
+  z-index: 0;
 }
-
-// <h1 class="mb-4 text-primary" id="title">My services</h1>
