@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "pages#home"
 
-  resources :crimes, only: %i[index new create show delete] do
+  resources :crimes, only: %i[index new create show destroy] do
     # TODO: Remove the new here. Just make the booking via a form directly on
     #       the crime's show page. This will require changes downstream.
     resources :bookings, only: %i[new create]
