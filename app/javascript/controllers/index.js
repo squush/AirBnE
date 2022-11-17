@@ -4,6 +4,9 @@
 
 import { application } from "./application"
 
+import AreaAutocompleteController from "./area_autocomplete_controller"
+application.register("area-autocomplete", AreaAutocompleteController)
+
 import FilterTypeController from "./filter_type_controller"
 application.register("filter-type", FilterTypeController)
 
