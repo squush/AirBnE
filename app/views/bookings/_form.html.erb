@@ -1,6 +1,7 @@
 <%= simple_form_for [@crime, @booking] do |f| %>
   <%= f.input :target %>
-  <%# change to calendar / look up 'flatpciker' %>
-  <%= f.input :date %>
+  <%# change to calendar / look up 'flatpcikr' %>
+  <%= f.input :crime_date %>
+  <%= f.input :photo, as: :file %>
   <%= f.button :submit, class:"btn btn-success" %>
 <% end %>

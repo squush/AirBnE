@@ -1,6 +1,7 @@
 class Booking < ApplicationRecord
   belongs_to :user
   belongs_to :crime
+  has_one_attached :photo
 
   enum status: {
     pending: 0,
