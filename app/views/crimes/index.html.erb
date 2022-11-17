@@ -4,7 +4,7 @@
     <h4>Filter by crime:</h4>
       <% @crime_types.each do |type| %>
         <button class="btn btn-ghost btn-sm" data-controller="filter-type" data-action="click->filter-type#toggle">
-        <div class="<%= type.gsub(/\s+/, "") %> center"></div>
+        <div class="<%= type.gsub(/\s+/, "") %> default-icon center"></div>
           <span><%= type %></span>
         </button>
       <% end %>
