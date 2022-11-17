@@ -6,7 +6,6 @@
         <% if booking.photo.attached? %>
           <%# TODO: Refactor the crop/width/height %>
           <%= cl_image_tag booking.photo.key, height: 300, width: 300, crop: :fit %>
-        <%# add else with placeholder image %>
         <% end %>
       </div>
       <p>Target: <%= booking.target %></p>
