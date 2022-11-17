@@ -5,8 +5,8 @@ class CrimesController < ApplicationController
     get_crime_types
     get_crime_areas
 
-    @query = params[:keywords].split(" ") if params[:keywords]
-    @query.nil? ? all_crimes_by_price : get_crimes_by_query
+    @query = params[:query].split(" ") if params[:query]
+    @query.present? ? @crimes = Crime.all.search_by_type_and_area(params[:query]).order(:price) : @crimes = Crime.all.order(:price)
   end
 
   # Arstanbek
@@ -63,26 +63,8 @@ class CrimesController < ApplicationController
     params.require(:crime).permit(:crime_type, :area, :price, :years_experience)
   end
 
-  def all_crimes_by_price
-    @crimes = Crime.all.sort_by { |crime| crime.price }
-    return @crimes
-  end
-
-  # This returns all the crimes where any word of the type or area matches any word of the search query
-  def get_crimes_by_query
-    all_crimes = Crime.all
-    @crimes = []
-    all_crimes.each do |crime|
-      # TODO: possibly add stricter search criteria to account for commas, etc.
-      crime_words = crime.crime_type.split(" ") + crime.area.split(" ")
-      @crimes << crime if @query.any? { |word| crime_words.include?(word) }
-    end
-    @crimes = @crimes.sort_by { |crime| crime.price }
-    return @crimes
-  end
-
   def get_crime_types
-    @crime_types = Crime.all.map { |crime| crime.crime_type }
+    @crime_types = Crime.all.map { |crime| crime.crime_type.capitalize }
     @crime_types = @crime_types.uniq
     return @crime_types
   end
