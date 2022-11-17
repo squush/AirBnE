@@ -81,3 +81,4 @@ end
 
 # CUSTOM
 gem 'faker'
+gem "cloudinary"

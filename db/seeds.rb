@@ -56,6 +56,13 @@ jaywalking = Crime.create(
   user: billy,
   years_experience: 21
 )
+prank_call = Crime.create(
+  crime_type: "prank call",
+  area: "Hochelaga, Montréal",
+  price: 20,
+  user: billy,
+  years_experience: 21
+)
 
 user_c = User.create(
   email: 'c@c.c',
@@ -70,10 +77,10 @@ littering = Crime.create(
   user: user_c,
   years_experience: 18
 )
-murder = Crime.create(
-  crime_type: "murder",
+espionage = Crime.create(
+  crime_type: "espionage",
   area: "Plateau, Montréal",
-  price: 29.99,
+  price: 30,
   user: user_c,
   years_experience: 0
 )
@@ -81,25 +88,25 @@ murder = Crime.create(
 # Jobs Billy is being paid for
 Booking.create(
   target: "Stephane",
-  crime_date: "2022-12-10",
+  date: "2022-12-10",
   user: user_a,
   crime: mugging
 )
 Booking.create(
   target: "rue Ste.-Catherine",
-  crime_date: "2022-12-02",
+  date: "2022-12-02",
   user: user_a,
-  crime: jaywalking
+  crime: prank_call
 )
 Booking.create(
   target: "Pascal",
-  crime_date: "2022-12-05",
+  date: "2022-12-05",
   user: user_c,
   crime: mugging
 )
 Booking.create(
   target: "avenue Casgrain",
-  crime_date: "2022-12-06",
+  date: "2022-12-06",
   user: user_c,
   crime: jaywalking
 )
@@ -107,25 +114,25 @@ Booking.create(
 # Jobs Billy is paying for
 Booking.create(
   target: "Hugo's car",
-  crime_date: "2022-12-04",
+  date: "2022-12-04",
   user: billy,
   crime: auto_theft
 )
 Booking.create(
   target: "in front of Le Wagon",
-  crime_date: "2022-12-01",
+  date: "2022-12-01",
   user: billy,
   crime: littering
 )
 Booking.create(
   target: "Andrew",
-  crime_date: "2022-12-06",
+  date: "2022-12-06",
   user: billy,
-  crime: murder
+  crime: espionage
 )
 Booking.create(
   target: "Arstanbek's apartment",
-  crime_date: "2022-12-07",
+  date: "2022-12-07",
   user: billy,
   crime: burglary
 )

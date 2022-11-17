@@ -32,6 +32,12 @@ class CrimesController < ApplicationController
     @user = User.find(@crime.user.id)
   end
 
+  def destroy
+    @crime = Crime.find(params[:id])
+    @crime.destroy
+    redirect_to crimes_path, notice: "Crime destroyed!"
+  end
+
   def my_crimes
     @my_crimes = Crime.all.select { |crime| crime.user == current_user }
   end
