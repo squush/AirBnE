@@ -1,12 +1,15 @@
 <div class="container">
   <h1>Bookings</h1>
 
+  <%# Refactor these two sections into a partial. Use if statement for the
+      Criminal/Client line %>
   <div class="mb-5">
     <h3>Crimes you've hired others to commit</h3>
     <div class="d-flex flex-wrap">
       <% @bookings.each do |booking| %>
         <div class="col-3 card p-2">
-          <p>Crime: <%= booking.crime.crime_type %></p>
+          <%# TODO: Refactor to link whole card %>
+          <p>Crime: <%= link_to booking.crime.crime_type, booking_path(booking) %></p>
           <div>
             <% if booking.photo.attached? %>
               <%# TODO: Refactor the crop/width/height %>
@@ -15,7 +18,7 @@
           </div>
           <p>Target: <%= booking.target %></p>
           <p>Criminal: <%= booking.crime.user.username %></p>
-          <p>Date: <%= booking.crime_date.strftime('%A, %d %b %Y %l:%M %p') %></p>
+          <p>Date: <%= booking.date.strftime('%a, %e %b %Y') %></p>
           <p>Cost: $<%= booking.crime.price %></p>
           <p>Status: <%= booking.status %></p>
         </div>
@@ -29,7 +32,8 @@
     <div class="d-flex flex-wrap">
       <% @my_crime_bookings.each do |booking| %>
         <div class="col-3 card p-2">
-          <p>Crime: <%= booking.crime.crime_type %></p>
+          <%# TODO: Refactor to link whole card %>
+          <p>Crime: <%= link_to booking.crime.crime_type, booking_path(booking) %></p>
           <div>
             <% if booking.photo.attached? %>
               <%# TODO: Refactor the crop/width/height %>
@@ -38,7 +42,7 @@
             <% end %>
           </div>
           <p>Target: <%= booking.target %></p>
-          <p>Date: <%= booking.crime_date.strftime('%A, %d %b %Y %l:%M %p') %></p>
+          <p>Date: <%= booking.date.strftime('%a, %e %b %Y') %></p>
           <p>Cost: $<%= booking.crime.price %></p>
           <p>Status: <%= booking.status %></p>
           <% if booking.status == "pending" %>
