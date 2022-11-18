@@ -1,5 +1,11 @@
-.btn-primary {
+.btn-search {
   background: #dfdddd;
+  border: $lightgray;
+}
+
+.btn-search:hover {
+  background-color: $red;
+  color: white;
 }
 
 .navbar {
