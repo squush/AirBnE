@@ -1,10 +1,10 @@
 .btn-search {
   background: #dfdddd;
-  border: rgb(115, 114, 114);
+  border: $lightgray;
 }
 
 .btn-search:hover {
-  background: $red;
+  background-color: $red;
   color: white;
 }
 
