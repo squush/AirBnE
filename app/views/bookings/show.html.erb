@@ -1,19 +1,25 @@
 <div class="container">
-  <div id="booking">
-    <h1 class="text-info"><%= @booking.crime.crime_type.capitalize %></h1>
-    <h3><%= @booking.date.strftime('%a, %e %b %Y') %></h3>
-    <h4>$<%= @booking.crime.price %></h4>
-    <p>Target: <%= @booking.target %></p>
-    <p>Status: <%= @booking.status %></p>
+    <div class="d-flex justify-content-center">
+    <br>
+      <div class="individual-booking">
+        <h1><%= @booking.crime.crime_type.capitalize %></h1>
+        <h3>Date: <%= @booking.date.strftime('%a, %e %b %Y') %></h3>
+        <p>Target: <%= @booking.target %></p>
+        <p>Status: <%= @booking.status %></p>
+        <p>Cost: $<%= @booking.crime.price %></p>
 
-
-    <% if @booking.user == current_user %>
-      <p>Criminal: <%= @booking.crime.user.username %></p>
-      <p>Client: you</p>
-      <p><%= link_to "Cancel Booking", booking_path(@booking), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %></p>
-    <% else %>
-      <p>Criminal: you</p>
-      <p>Client: <%= @booking.user.username %></p>
-    <% end %>
-  </div>
+        <% if @booking.user == current_user %>
+          <p>Criminal: <%= @booking.crime.user.username %></p>
+          <p>Client: you</p>
+          <p><%= link_to "Cancel Booking", booking_path(@booking), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %></p>
+        <% else %>
+          <p>Criminal: you</p>
+          <p>Client: <%= @booking.user.username %></p>
+        <% end %>
+      </div>
+    </div>
+      <br>
+      <div class="d-flex justify-content-center">
+      <p> <%= link_to "Back to bookings", bookings_path%> </p>
+    </div>
 </div>

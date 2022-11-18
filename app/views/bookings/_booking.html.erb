@@ -1,7 +1,7 @@
 <% @bookings.each do |booking| %>
-  <div class="col-3 card p-2">
+  <div class="col-3 card p-2 bookings-card">
     <%= link_to booking_path(booking), class: "text-decoration-none" do %>
-      <p><%= booking.crime.crime_type.capitalize  %></p>
+      <h4><%= booking.crime.crime_type.capitalize  %></h4>
       <div>
         <% if booking.photo.attached? %>
           <%# TODO: Refactor the crop/width/height %>
