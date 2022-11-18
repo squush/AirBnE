@@ -23,3 +23,10 @@
 .text-lightred {
   color: $lightred;
 }
+
+
+.sticky-map {
+  height: 100vh;
+  position: sticky;
+  top: 76px;
+}

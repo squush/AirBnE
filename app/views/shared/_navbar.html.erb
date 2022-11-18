@@ -19,7 +19,7 @@
                 class: "form-control",
                 placeholder: "Search for crimes"
               %>
-              <%= submit_tag "Search", class: "btn btn-primary" %>
+              <%= submit_tag "Search", class: "btn btn-search"  %>
             <% end %>
             </span>
           </li>
@@ -38,11 +38,11 @@
           </li>
 
           <li class="nav-item dropdown">
-            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <%= image_tag "profile_avatar.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "View profile", profile_path, class: "dropdown-item" %>
               <%# Needs path for editing own profile %>
-              <%= link_to "Edit profile", "#", class: "dropdown-item" %>
+              <%= link_to "Edit profile", user_path, class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
             </div>
           </li>
