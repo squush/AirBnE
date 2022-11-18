@@ -21,6 +21,19 @@
   color: $grayred;
 }
 
+.card-rounded {
+  border-radius: 6px;
+}
+
+.card-rounded:hover {
+  box-shadow: 0 0 3px 3px $grayred;
+}
+
+
+.card-smaller-text {
+  font-size: 14px;
+}
+
 // .text-info {
 //   color: $green;
 // }
