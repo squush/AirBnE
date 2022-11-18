@@ -1,9 +1,13 @@
 <div class="container">
   <h1 class="text-info"><%= current_user.username %></h1>
-  <p><%= current_user.email %></p>
-  <p><%= current_user.encrypted_password %></p>
+  <br>
+  <h2>Bio</h2>
   <p><%= current_user.bio %></p>
+  <h3>Email</h3>
+  <p><%= current_user.email %></p>
+  <p><% current_user.encrypted_password %></p>
+  <p><% current_user.username %></p>
 
   <%# Need to add path here %>
-  <%= link_to "Delete account", "#" %>
+  <%# <%= link_to "Delete account", "#" %>
 </div>
