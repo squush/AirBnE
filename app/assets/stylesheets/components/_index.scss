@@ -8,3 +8,10 @@
 @import "filter-button";
 @import "my_crimes";
 @import "map";
+
+.sticky-icons {
+  position: sticky;
+  top: 76px;
+  z-index: 12;
+  background-color: var(--bs-body-bg);
+}

@@ -11,3 +11,10 @@
   border-radius: 2px;
   background-color: $lightestgray;
 }
+
+
+.sticky-map {
+  height: 100vh;
+  position: sticky;
+  top: 76px;
+}
