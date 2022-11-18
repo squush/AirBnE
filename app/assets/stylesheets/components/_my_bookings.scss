@@ -36,6 +36,10 @@
   border-radius: 12px;
 }
 
+.individual-booking:hover {
+  box-shadow: 0 0 3px 3px $lightestgray;
+}
+
 #cancel-booking {
   color: $lightred;
 }
