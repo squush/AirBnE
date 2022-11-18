@@ -21,5 +21,5 @@ Rails.application.routes.draw do
   resources :bookings, only: %i[show destroy]
 
   get '/profile/edit', to: 'users#edit', as: :user
-  patch '/profile', to: 'users#update'
+  patch '/profile/edit', to: 'users#update'
 end
