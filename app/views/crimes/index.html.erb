@@ -1,15 +1,13 @@
 <div class="container">
   <h1 class="mb-4 text-primary">All Crimes</h1>
 
-
   <div class="d-flex">
     <div class="col-5">
       <div class="d-flex flex-wrap mb-2  sticky-icons">
         <% @crime_types.each do |type| %>
           <button class="btn btn-ghost btn-sm col-2"
             data-controller="filter-type"
-            data-action="click->filter-type#toggle"
-          >
+            data-action="click->filter-type#toggle">
             <div class="<%= type.gsub(/\s+/, "") %> default-icon center"></div>
             <span><%= type %></span>
           </button>
@@ -25,8 +23,7 @@
     <div class="sticky-map" style="width: 100%;"
       data-controller="map"
       data-map-markers-value="<%= @markers.to_json %>"
-      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
-    >
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
   </div>
 </div>
