@@ -1,27 +1,29 @@
 <% @my_crime_bookings.each do |booking| %>
-  <div class="col-3 card p-2 bookings-card">
-    <%= link_to booking_path(booking), class: "text-decoration-none" do %>
-      <h4><%= booking.crime.crime_type.capitalize %></h4>
-      <div>
-        <% if booking.photo.attached? %>
-          <%# TODO: Refactor the crop/width/height %>
-          <%= cl_image_tag booking.photo.key, height: 300, width: 300, crop: :fit %>
+  <div class="col-3 p-1">
+    <div class="card p-2 bookings-card">
+      <%= link_to booking_path(booking), class: "text-decoration-none" do %>
+        <h4><%= booking.crime.crime_type.capitalize %></h4>
+        <div>
+          <% if booking.photo.attached? %>
+            <%# TODO: Refactor the crop/width/height %>
+            <%= cl_image_tag booking.photo.key, height: 300, width: 300, crop: :fit %>
+          <% end %>
+        </div>
+        <p>Target: <%= booking.target %></p>
+        <p>Date: <%= booking.date.strftime('%a, %e %b %Y') %></p>
+        <p>Cost: $<%= booking.crime.price %></p>
+        <p>Status: <%= booking.status %></p>
+        <% if booking.status == "pending" %>
+          <%= link_to "approve",
+            approve_booking_path(booking),
+            class: "btn btn-outline-success"
+          %>
+          <%= link_to "reject",
+            reject_booking_path(booking),
+            class: "btn btn-outline-danger"
+          %>
         <% end %>
-      </div>
-      <p>Target: <%= booking.target %></p>
-      <p>Date: <%= booking.date.strftime('%a, %e %b %Y') %></p>
-      <p>Cost: $<%= booking.crime.price %></p>
-      <p>Status: <%= booking.status %></p>
-      <% if booking.status == "pending" %>
-        <%= link_to "approve",
-          approve_booking_path(booking),
-          class: "btn btn-outline-success"
-        %>
-        <%= link_to "reject",
-          reject_booking_path(booking),
-          class: "btn btn-outline-danger"
-        %>
       <% end %>
-    <% end %>
+    </div>
   </div>
 <% end %>
