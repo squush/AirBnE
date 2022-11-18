@@ -9,18 +9,15 @@
             <h3 class="mb-3">
               <%= "#{crime.crime_type} in #{crime.area}" %>
             </h3>
-            <div class="d-flex justify-content-between p-3 text-info">
+            <div class="d-flex justify-content-between p-2 text-info">
               <div class="d-flex flex-column align-items-start">
                 <p class="m-0">Price</p>
                 <p class="m-0"><strong>$<%= crime.price %></strong></p>
               </div>
-              <%# <div class="d-flex flex-column align-items-middle">
-                <p class="default corner"> %>
-                <div class="d-flex flex-column align-items-end">
-                  <p class="m-0">Experience</p>
-                  <p class="m-0"><strong><%= crime.years_experience %> years</strong></p>
-                </div>
-              <%# </div> %>
+              <div class="d-flex flex-column align-items-end">
+                <p class="m-0">Experience</p>
+                <p class="m-0"><strong><%= crime.years_experience %> years</strong></p>
+              </div>
             </div>
           </div>
         <% end %>
