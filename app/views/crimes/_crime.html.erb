@@ -1,9 +1,12 @@
 <div class="p-1 col-12 col-lg-6 d-grid text-center crime-card">
   <%= link_to crime_path(crime), class: "text-decoration-none d-grid" do %>
     <div class="card p-2 border-danger d-flex text-primary justify-content-between card-rounded crime-type">
-      <h3 class="mb-2 text-danger">
-        <%= "#{crime.crime_type}" %>
-      </h3>
+      <div>
+        <h3 class="mb-2 text-danger">
+          <%= "#{crime.crime_type}" %>
+        </h3>
+        <h5 class="my-1"><%= crime.user.username %></h5>
+      </div>
       <p class="my-1"><%= crime.area %></p>
       <div class="d-flex justify-content-between p-2 text-warning card-smaller-text">
         <div class="d-flex flex-column align-items-start">
