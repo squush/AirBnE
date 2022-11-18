@@ -1,0 +1,11 @@
+<div class="window">
+    <%= link_to crime_path(crime), class: "text-decoration-none" do %>
+      <div class=""><h3><%= crime.crime_type.capitalize %></h3></div>
+        <div class="text-secondary">
+          <h4>$<%= crime.price %></h4>
+          <p><%= crime.user.username %></p>
+          <p><%= crime.area %></p>
+          <p><%= crime.years_experience %> years of experience in <%= crime.crime_type %></p>
+        </div>
+    <% end %>
+  </div>

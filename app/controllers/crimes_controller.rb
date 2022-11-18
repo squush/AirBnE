@@ -10,7 +10,8 @@ class CrimesController < ApplicationController
     @markers = @crimes.geocoded.map do |crime|
       {
         lat: crime.latitude,
-        lng: crime.longitude
+        lng: crime.longitude,
+        info_window: render_to_string(partial: "info_window", locals: {crime: crime})
       }
     end
   end
