@@ -1,23 +1,29 @@
-<div class="container">
-  <h1>My Bookings</h1>
+<div class="container my-bookings">
 
-
-
-
-
-  <div class="mb-5">
-    <h3>Crimes you've hired others to commit:</h3>
-    <div class="d-flex flex-wrap">
-      <%= render partial: "booking" %>
-    </div>
+  <div class="d-flex justify-content-center">
+   <h1>My Bookings</h1>
   </div>
 
   <br>
 
-  <div class="mb-5">
-    <h3>Crimes you need to commit:</h3>
-    <div class="d-flex flex-wrap">
-      <%= render partial: "crimes_to_commit" %>
-    </div>
+  <div class="d-flex justify-content-center">
+    <h3>Crimes you've hired others to commit:</h3>
   </div>
+
+  <div class="bookings">
+    <%= render partial: "booking" %>
+  </div>
+
+  <br>
+
+  <div class="d-flex justify-content-center">
+    <h3>Crimes you need to commit:</h3>
+  </div>
+
+  <div class="bookings">
+    <%= render partial: "crimes_to_commit" %>
+  </div>
+
+  <br>
+
 </div>
