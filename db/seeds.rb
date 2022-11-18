@@ -22,64 +22,64 @@ user_a = User.create(
 )
 auto_theft = Crime.create(
   crime_type: "auto theft",
-  area: "Hochelaga, Montréal",
+  area: "Hochelaga, Montreal",
   price: 175,
   user: user_a,
   years_experience: 15
 )
 burglary = Crime.create(
   crime_type: "burglary",
-  area: "Hochelaga, Montréal",
+  area: "Hochelaga, Montreal",
   price: 120,
   user: user_a,
   years_experience: 0
 )
 
 # Login as this user
-billy = User.create(
+johnny = User.create(
   email: 'b@b.b',
   password: '111111',
-  username: 'Billy the Good Boy',
+  username: 'Johnny < Big Boy > Carlito',
   bio: 'I am definitely not a criminal'
 )
 mugging = Crime.create(
   crime_type: "mugging",
-  area: "Hochelaga, Montréal",
+  area: "Hochelaga, Montreal",
   price: 120,
-  user: billy,
+  user: johnny,
   years_experience: 8
 )
 jaywalking = Crime.create(
   crime_type: "jaywalking",
-  area: "Hochelaga, Montréal",
+  area: "Hochelaga, Montreal",
   price: 40,
-  user: billy,
+  user: johnny,
   years_experience: 21
 )
 prank_call = Crime.create(
   crime_type: "prank call",
-  area: "Hochelaga, Montréal",
+  area: "Hochelaga, Montreal",
   price: 20,
-  user: billy,
+  user: johnny,
   years_experience: 21
 )
 
 user_c = User.create(
   email: 'c@c.c',
   password: '111111',
-  username: 'Johnny Bad Boy',
+  username: 'Billy Bad Boy',
   bio: 'I am probably not a criminal'
 )
 littering = Crime.create(
   crime_type: "littering",
-  area: "Plateau, Montréal",
+  area: "Plateau, Montreal",
   price: 200,
   user: user_c,
   years_experience: 18
 )
 espionage = Crime.create(
   crime_type: "espionage",
-  area: "Plateau, Montréal",
+  area: "Plateau, Montreal",
   price: 30,
   user: user_c,
   years_experience: 0
@@ -87,18 +87,12 @@ espionage = Crime.create(
 
 puts "Creating standard bookings..."
 
-# Jobs Billy is being paid for
+# Jobs johnny is being paid for
 Booking.create(
-  target: "Stephane",
+  target: "Stephane 'The Fountain' Lafontaine",
   date: "2022-12-10",
   user: user_a,
   crime: mugging
-)
-Booking.create(
-  target: "rue Ste.-Catherine",
-  date: "2022-12-02",
-  user: user_a,
-  crime: prank_call
 )
 Booking.create(
   target: "Pascal",
@@ -107,35 +101,30 @@ Booking.create(
   crime: mugging
 )
 Booking.create(
-  target: "avenue Casgrain",
+  target: "Freddie 'The Database' Charest",
   date: "2022-12-06",
   user: user_c,
-  crime: jaywalking
+  crime: mugging
 )
 
-# Jobs Billy is paying for
+# Jobs johnny is paying for
 Booking.create(
   target: "Hugo's car",
   date: "2022-12-04",
-  user: billy,
+  user: johnny,
   crime: auto_theft
 )
-Booking.create(
-  target: "in front of Le Wagon",
-  date: "2022-12-01",
-  user: billy,
-  crime: littering
-)
+
 Booking.create(
   target: "Andrew",
   date: "2022-12-06",
-  user: billy,
+  user: johnny,
   crime: espionage
 )
 Booking.create(
   target: "Arstanbek's apartment",
   date: "2022-12-07",
-  user: billy,
+  user: johnny,
   crime: burglary
 )
 
@@ -151,11 +140,11 @@ puts "Creating random users..."
   print "Creating crimes for #{user.email}: "
   crimes = ["robbery", "auto theft", "assault", "mugging", "jaywalking", "littering", "forgery"]
   cities = [
-    "NDG, Montréal", "Hochelaga, Montréal", "The Beaches, Toronto", "Kensington Market, Toronto",
-    "Bishkek", "Manhattan", "Halifax", "Paris", "Macau", "Brussels", "Miami", "Beijing", "Seoul"
+    "NDG, Montreal", "Hochelaga, Montreal", "The Beaches, Toronto", "Kensington Market, Toronto",
+    "Bishkek", "Manhattan", "Halifax", "Paris", "Brussels", "Miami"
   ]
 
-  2.times do
+  3.times do
     Crime.create(
       crime_type: crimes.sample,
       area: cities.sample,
