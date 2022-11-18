@@ -1,3 +1,45 @@
 .text-primary {
   text-align: center;
 }
+
+.my-bookings h1 {
+  color: $green;
+}
+
+.bookings {
+  display: flex;
+  justify-content: space-around;
+  column-gap: 5px;
+}
+
+.bookings-card {
+  border-radius: 12px;
+  border: solid $green;
+  // box-shadow: 3px 3px 3px 3px $lightestgray;
+}
+
+.bookings-card:hover {
+  box-shadow: 0 0 3px 3px $lightestgray;
+}
+
+.bookings-card h4 {
+  color: $red;
+}
+
+.individual-booking h1 {
+  color: $lightred;
+  text-align: center;
+}
+
+.individual-booking {
+  border: solid $green;
+  border-radius: 12px;
+}
+
+.individual-booking:hover {
+  box-shadow: 0 0 3px 3px $lightestgray;
+}
+
+#cancel-booking {
+  color: $lightred;
+}
