@@ -14,6 +14,15 @@
   text-align: center;
 }
 
+.crime-card {
+  margin: 5px;
+  width: 47%;
+}
+
+.crime-type {
+
+}
+
 .text-secondary {
   color: $gray;
 }
@@ -25,6 +34,19 @@
 .crime-card a {
   border: 0px solid;
 }
+.card-rounded {
+  border-radius: 6px;
+}
+
+.card-rounded:hover {
+  box-shadow: 0 0 3px 3px $grayred;
+}
+
+
+.card-smaller-text {
+  font-size: 14px;
+}
+
 // .text-info {
 //   color: $green;
 // }

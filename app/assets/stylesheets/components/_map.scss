@@ -4,10 +4,29 @@
 
 .mapboxgl-popup-content {
   text-align: center;
+  border: 1px solid $red;
+  border-radius: 6px;
+  h3 {
+    color: $red;
+  }
+
+  p {
+    margin: 0px 4px auto !important;
+  }
 }
 
-.window {
-  border: 1px solid $gray;
-  border-radius: 2px;
-  background-color: $lightestgray;
+.mapboxgl-popup-close-button {
+  font-size: 20px;
+  color: $gray;
+}
+
+.text-lightred {
+  color: $lightred;
+}
+
+
+.sticky-map {
+  height: 100vh;
+  position: sticky;
+  top: 76px;
 }

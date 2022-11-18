@@ -31,3 +31,12 @@
 //   margin: center;
 //   color: black;
 // }
+.new-crime-form {
+  width: 900px;
+  border: solid $red;
+  border-radius: 12px;
+}
+
+.new-crime-form h1 {
+  color: $red;
+}
