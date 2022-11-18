@@ -39,7 +39,7 @@ burglary = Crime.create(
 johnny = User.create(
   email: 'b@b.b',
   password: '111111',
-  username: 'Johnny < Big Boy > Carlito',
+  username: "Johnny Big Boy Carlito",
   bio: 'I am definitely not a criminal'
 )
 mugging = Crime.create(
@@ -88,24 +88,6 @@ espionage = Crime.create(
 puts "Creating standard bookings..."
 
 # Jobs johnny is being paid for
-Booking.create(
-  target: "Stephane 'The Fountain' Lafontaine",
-  date: "2022-12-10",
-  user: user_a,
-  crime: mugging
-)
-Booking.create(
-  target: "Pascal",
-  date: "2022-12-05",
-  user: user_c,
-  crime: mugging
-)
-Booking.create(
-  target: "Freddie 'The Database' Charest",
-  date: "2022-12-06",
-  user: user_c,
-  crime: mugging
-)
 
 # Jobs johnny is paying for
 Booking.create(
