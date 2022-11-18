@@ -5,7 +5,6 @@
   margin: 10px;
   text-decoration: none;
   padding: 15px;
-  background-color: white;
 }
 
 .crime-card h3 {
@@ -14,37 +13,12 @@
   text-align: center;
 }
 
-.crime-card {
-  margin: 5px;
-  width: 47%;
-}
-
-.crime-type {
-
-}
-
 .text-secondary {
   color: $gray;
 }
 .text-secondary h4 {
   word-break: break-all;
   color: $grayred;
-}
-
-.crime-card a {
-  border: 0px solid;
-}
-.card-rounded {
-  border-radius: 6px;
-}
-
-.card-rounded:hover {
-  box-shadow: 0 0 3px 3px $grayred;
-}
-
-
-.card-smaller-text {
-  font-size: 14px;
 }
 
 // .text-info {

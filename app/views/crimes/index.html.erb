@@ -1,27 +1,27 @@
 <div class="container">
-  <h1 class="mb-4 text-primary ">All Crimes</h1>
+  <h1 class="mb-4 text-primary">All Crimes</h1>
+
 
   <div class="d-flex">
-    <div class="col-5 m-1">
-      <div class="d-flex flex-wrap mb-2 sticky-icons border-bottom border-warning">
-        <% @crime_types.each do |type| %>
-          <button class="btn btn-ghost btn-sm col-6 col-md-4 col-lg-3 col-xl-2"
-            data-controller="filter-type"
-            data-action="click->filter-type#toggle">
+    <div class="col-6">
+      <div class="d-flex flex-wrap justify-content-between mb-2">
+        <%# <h4>Filter by crime:</h4> %>
+          <% @crime_types.each do |type| %>
+            <button class="btn btn-ghost btn-sm col-2"
+              data-controller="filter-type"
+              data-action="click->filter-type#toggle"
+            >
             <div class="<%= type.gsub(/\s+/, "") %> default-icon center"></div>
-            <span><%= type %></span>
-          </button>
-        <% end %>
+              <span><%= type %></span>
+            </button>
+          <% end %>
       </div>
 
       <div class="d-flex flex-wrap justify-content-around">
-        <% @crimes.each do |crime| %>
-          <%= render "crime", crime: crime %>
-        <% end %>
+        <%= render partial: "crime" %>
       </div>
     </div>
-
-    <div class="sticky-map" style="width: 100%;"
+    <div class="mb-5" style="width: 100%; height: 600px;"
       data-controller="map"
       data-map-markers-value="<%= @markers.to_json %>"
       data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">

@@ -1,45 +1,35 @@
+<%# Jackson made the skeleton
+  Andrew made the rest %>
+
 <div class="container">
-  <div class="col-8 mx-auto text-center" >
   <%# This h1 looks bad and needs better styling!  %>
-    <h1 class="mb-3 text-danger border-bottom border-warning">
-      <%= @crime.crime_type.capitalize %>
-    </h1>
+  <h1 class="mb-3 text-info"><%= @crime.crime_type.capitalize %> by <%= @user.username %></h1>
 
-    <%# Div with info on the crime %>
-    <div class="mb-4">
-      <div>
-        <h4 class="mb-2"><% if @user == current_user %>
-          <em class="text-warning">this is your crime</em>
-        <% else %>
-          <%= @user.username %>
-        <% end %></h4>
-        <h5 class="mb-3"><%= @crime.area %></h5>
-      </div>
-      <div>
-        <p>Price: $<%= @crime.price %></p>
-        <p>Years of experience: <%= @crime.years_experience.nil? ? "unknown" : @crime.years_experience %></p>
-      </div>
-    </div>
+  <%# Div with info on the crime %>
+  <div>
+    <p>Crime: <%= @crime.crime_type %></p>
+    <p>Criminal: <%= @user.username %></p>
+    <p>Area of operations: <%= @crime.area %></p>
+    <p>Price: $<%= @crime.price %></p>
+    <p>Years of experience: <%= @crime.years_experience.nil? ? "unknown" : @crime.years_experience %></p>
+  </div>
 
-    <%# Div with navigation options for users %>
-    <div>
-      <p>
-        <% if @user == current_user %>
-          <%= link_to "Edit", edit_crime_path(@crime),
-            class: "btn btn-outline-primary mx-2" %>
-        <% end %>
+  <%# Div with navigation options for users %>
+  <div>
+    <p>
+      <% if @user == current_user %>
+        <%= link_to "edit", edit_crime_path(@crime) %>
+      <% end %>
 
-        <% if @user == current_user %>
-          <%= link_to "Delete", crime_path(@crime),
-            data: { turbo_method: :delete, turbo_confirm: "Are you sure?" },
-            class: "btn btn-outline-danger mx-2" %>
-        <% end %>
-        <% unless @user == current_user %>
-          <%= link_to "Book this crime", new_crime_booking_path(@crime),
-            class: "btn btn-lg btn-outline-success" %>
-        <% end %>
-        <br>
-      </p>
-    </div>
+      <% if @user == current_user %>
+        <%= link_to "delete", crime_path(@crime), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+      <% end %>
+      <%# <%= link_to "book" unless @user == current_user %>
+       <%# <a class="banner-button btn-flat" href="#">Book this crime</a> %>
+       <% unless @user == current_user %>
+      <%= link_to "Book this crime", new_crime_booking_path(@crime) %>
+      <% end %>
+      <br>
+    </p>
   </div>
 </div>

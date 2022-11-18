@@ -2,18 +2,9 @@
 @import "alert";
 @import "area_autocomplete";
 @import "avatar";
-@import "my_bookings";
 @import "form_legend_clear";
 @import "navbar";
 @import "crime-card";
 @import "filter-button";
 @import "my_crimes";
 @import "map";
-@import "show_booking";
-
-.sticky-icons {
-  position: sticky;
-  top: 76px;
-  z-index: 12;
-  background-color: var(--bs-body-bg);
-}
