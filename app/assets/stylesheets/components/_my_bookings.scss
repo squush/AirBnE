@@ -7,15 +7,15 @@
 }
 
 .bookings {
-  display: flex;
-  justify-content: space-around;
-  column-gap: 5px;
+  // display: flex;
+  // justify-content: space-around;
+  // column-gap: 5px;
 }
 
 .bookings-card {
-  border-radius: 12px;
+  border-radius: 6px;
   border: 1px solid $green;
-  // box-shadow: 3px 3px 3px 3px $lightestgray;
+  &:hover { box-shadow: 0 0 3px 3px $graygreen; }
 }
 
 .bookings-card:hover {
